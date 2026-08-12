@@ -22,11 +22,118 @@
             color: #333; 
         }
         
-        /* Header */
-        .header { background: white; padding: 20px 15px; text-align: center; box-shadow: 0 2px 10px rgba(0,0,0,0.05); }
-        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 8px; object-fit: contain; background: white; padding: 6px; box-sizing: border-box; }
-        .brand-name { font-size: 24px; font-weight: 800; color: var(--dark); margin: 0; }
-        .contact-info { font-size: 12px; color: #666; margin-top: 4px; }
+        /* Header Premium Stylings */
+        .header { 
+            background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%); 
+            padding: 25px 15px 20px 15px; 
+            text-align: center; 
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
+            border-bottom: 2px solid #f0e6d2;
+            position: relative;
+        }
+
+        .logo-container {
+            position: relative;
+            display: inline-block;
+            margin-bottom: 6px;
+        }
+
+        .logo { 
+            width: 85px; 
+            height: 85px; 
+            border-radius: 50%; 
+            border: 2px solid var(--gold); 
+            object-fit: contain; 
+            background: #fff; 
+            padding: 5px; 
+            box-sizing: border-box; 
+            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
+            transition: transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: scale(1.05);
+        }
+
+        .brand-name { 
+            font-size: 26px; 
+            font-weight: 900; 
+            color: var(--dark); 
+            margin: 4px 0 2px 0; 
+            letter-spacing: -0.5px;
+        }
+
+        .tagline {
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 600;
+            margin: 0 0 10px 0;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Chips / Badges Keunggulan */
+        .header-badges {
+            display: flex;
+            justify-content: center;
+            gap: 6px;
+            flex-wrap: wrap;
+            margin: 10px 0;
+        }
+
+        .badge-item {
+            background: #f4efe4;
+            color: #7a602d;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 4px 10px;
+            border-radius: 20px;
+            border: 1px solid #e2d5b8;
+        }
+
+        /* Informasi Kontak & Action Buttons */
+        .contact-info { 
+            font-size: 12px; 
+            color: #555; 
+            margin-top: 10px; 
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 5px;
+            flex-wrap: wrap;
+        }
+
+        .header-actions {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 12px;
+        }
+
+        .btn-header {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 12px;
+            font-weight: bold;
+            padding: 8px 14px;
+            border-radius: 20px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+        }
+
+        .btn-maps {
+            background: #f0f0f0;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+
+        .btn-wa-header {
+            background: var(--wa);
+            color: white;
+            border: none;
+            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
+        }
 
         /* Admin Box */
         .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
@@ -80,13 +187,36 @@
 </head>
 <body>
 
+    <!-- Header Kop Web -->
     <div class="header">
-        <img src="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500" class="logo" alt="Logo Asheeqa Printing">
+        <div class="logo-container">
+            <img src="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500" class="logo" alt="Logo Asheeqa Printing" onerror="this.src='https://via.placeholder.com/85?text=Logo'">
+        </div>
+        
         <h1 class="brand-name">Asheeqa Printing</h1>
-        <div class="contact-info">📍 Jl. Borong Raya 2 - Makassar | 📞 0895411452229</div>
+        <div class="tagline">Katalog Undangan & Percetakan</div>
+
+        <div class="header-badges">
+            <span class="badge-item">⚡ Cetak Cepat</span>
+            <span class="badge-item">🎯 Hasil Presisi</span>
+            <span class="badge-item">💡 Banyak Choice</span>
+        </div>
+
+        <div class="contact-info">
+            <span>📍 Jl. Borong Raya 2 - Makassar</span>
+        </div>
+
+        <div class="header-actions">
+            <a href="https://maps.google.com/?q=Jl.+Borong+Raya+2+Makassar" target="_blank" class="btn-header btn-maps">
+                🗺️ Lokasi Toko
+            </a>
+            <a href="https://api.whatsapp.com/send?phone=62895411452229&text=Halo%20Asheeqa%20Printing,%20saya%20ingin%20bertanya%20mengenai%20layanan%20percetakan" target="_blank" class="btn-header btn-wa-header">
+                💬 Hubungi Kami
+            </a>
+        </div>
     </div>
 
-    <!-- Navigasi Menu Baru -->
+    <!-- Navigasi Menu -->
     <div class="nav-tabs">
         <div class="tab active" onclick="filter('PROMO', this)">🔥 PROMO</div>
         <div class="tab" onclick="filter('READY', this)">📦 Ready</div>
@@ -103,7 +233,6 @@
         
         <input type="text" id="nama" placeholder="Nama Produk">
         
-        <!-- Pilihan Kategori Baru -->
         <select id="kelompok">
             <option value="Normal">Normal</option>
             <option value="Hotprint">Hotprint</option>
@@ -114,7 +243,6 @@
         <input type="number" id="hargaA" placeholder="Harga Asli (Rp)">
         <input type="number" id="hargaP" placeholder="Harga Promo (Kosongkan jika tidak promo)">
         
-        <!-- Opsi Tandai Produk Ready -->
         <label class="checkbox-container">
             <input type="checkbox" id="isReady"> Tandai sebagai Produk Ready
         </label>
@@ -136,7 +264,7 @@
         <div class="modal-content">
             <button onclick="tutupDetail()" style="width:100%; padding:15px; border:none; background:#2d3436; color:white; font-weight:bold; font-size:14px;">← KEMBALI KE KATALOG</button>
             <div class="img-slider-box" id="slider-area">
-                <img id="v-img" class="main-view" alt="Gambar Produk">
+                <img id="v-img" class="main-view" alt="Gambar Produk" onerror="this.src='https://via.placeholder.com/500?text=No+Image'">
             </div>
             <div class="slide-dots" id="v-dots"></div>
             <div class="thumb-list" id="v-thumbs"></div>
@@ -163,6 +291,12 @@
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyxcNyq4dUZEXMXROj6Jq0ijzLlQv1SQUrN5pR931IQXj-A_Tn123tCDXSpGrMfHWSOvg/exec'; 
         let db = [], cart = [], activeProd = null, photos = [], currentIdx = 0;
         let touchX = 0, fullTouchX = 0, initialDist = -1, currentScale = 1;
+
+        // Helper untu Sanitasi Karakter (XSS Prevention)
+        const escapeHtml = (str) => {
+            if (!str) return '';
+            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+        };
 
         // Cek mode Admin
         const isAdmin = new URLSearchParams(window.location.search).get('mode') === 'admin';
@@ -194,7 +328,6 @@
             if(el) el.classList.add('active');
             
             const cont = document.getElementById('container');
-            cont.innerHTML = '';
             
             let items = [];
             if (kat === 'PROMO') {
@@ -210,6 +343,8 @@
                 return;
             }
 
+            // Membangun fragment string agar efisiensi render DOM maksimal
+            let htmlContent = '';
             items.forEach(i => {
                 let hAsli = parseInt(i.hargaAsli) || 0;
                 let hPromo = parseInt(i.hargaPromo) || 0;
@@ -220,17 +355,18 @@
                 let isItemReady = (i.isReady === 'YA' || i.isReady === true || i.isReady === 'true');
                 let badgeReadyHtml = isItemReady ? `<span class="badge-ready">READY</span>` : '';
 
-                cont.innerHTML += `
+                htmlContent += `
                     <div class="card">
                         ${badgeReadyHtml}
-                        <img src="${fixUrl(i.url)}" onclick="buka('${i.id}')" loading="lazy" alt="${i.nama}">
+                        <img src="${fixUrl(i.url)}" onclick="buka('${escapeHtml(i.id)}')" loading="lazy" alt="${escapeHtml(i.nama)}" onerror="this.src='https://via.placeholder.com/300?text=No+Image'">
                         <div class="info">
-                            <b style="font-size:13px; margin-bottom:4px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${i.nama}</b>
+                            <b style="font-size:13px; margin-bottom:4px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${escapeHtml(i.nama)}</b>
                             ${hargaHtml}
-                            ${isAdmin ? `<button onclick="isiEdit('${i.id}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:8px; border-radius:5px; width:100%; font-size:12px;">EDIT</button>` : ''}
+                            ${isAdmin ? `<button onclick="isiEdit('${escapeHtml(i.id)}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:8px; border-radius:5px; width:100%; font-size:12px;">EDIT</button>` : ''}
                         </div>
                     </div>`;
             });
+            cont.innerHTML = htmlContent;
         }
 
         // Buka Detail Modal
@@ -405,6 +541,13 @@
             document.getElementById('hargaP').value = '';
             document.getElementById('isReady').checked = false;
             document.getElementById('desk').value = '';
+            
+            // Clear input files saat batal
+            for(let k = 1; k <= 5; k++) {
+                document.getElementById('f' + k).value = '';
+                document.getElementById('o' + k).value = '';
+            }
+
             document.getElementById('btnDel').style.display = 'none';
             document.getElementById('btnSave').innerText = "SIMPAN DATA";
             document.getElementById('adm-title').innerText = "Tambah / Edit Produk";
