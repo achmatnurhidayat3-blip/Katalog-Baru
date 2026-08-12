@@ -4,6 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Asheeqa Printing</title>
+    
+    <!-- Open Graph Meta Tags untuk Link Preview WhatsApp/Medsos -->
+    <meta property="og:title" content="Katalog Asheeqa Printing - Percetakan & Undangan">
+    <meta property="og:description" content="Cetak cepat, hasil presisi, dan banyak pilihan undangan & produk percetakan di Makassar.">
+    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500">
+
     <style>
         :root { 
             --wa: #25D366; 
@@ -22,14 +28,27 @@
             color: #333; 
         }
         
-        /* Header Premium Stylings */
+        /* Header Premium Stylings (Diperbarui) */
         .header { 
-            background: linear-gradient(180deg, #ffffff 0%, #fdfbf7 100%); 
-            padding: 25px 15px 20px 15px; 
+            background: linear-gradient(145deg, #ffffff 0%, #f7f3e9 100%); 
+            padding: 30px 20px 40px 20px; 
             text-align: center; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.05); 
-            border-bottom: 2px solid #f0e6d2;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.05); 
             position: relative;
+            border-bottom: 1px solid #e2d5b8;
+            overflow: hidden;
+        }
+
+        /* Efek Lengkungan Modern di bawah Header */
+        .header::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: -20%;
+            width: 140%;
+            height: 30px;
+            background: var(--bg);
+            border-radius: 50%;
         }
 
         .logo-container {
@@ -108,6 +127,8 @@
             justify-content: center;
             gap: 10px;
             margin-top: 12px;
+            position: relative;
+            z-index: 2;
         }
 
         .btn-header {
@@ -135,7 +156,7 @@
             box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
         }
 
-        /* Admin Box */
+        /* Admin Box (Diperbarui) */
         .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
         input, select, textarea, button { width: 100%; padding: 12px; margin: 6px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
         .checkbox-container { display: flex; align-items: center; gap: 8px; margin: 8px 0; font-size: 14px; font-weight: bold; color: var(--ready); cursor: pointer; }
@@ -143,6 +164,30 @@
         button { cursor: pointer; transition: opacity 0.2s; }
         button:active { opacity: 0.8; }
         
+        /* Area Upload Foto Rapi */
+        .upload-group {
+            background: #fdfdfd;
+            padding: 12px;
+            border: 1px dashed var(--gold);
+            border-radius: 10px;
+            margin: 10px 0;
+        }
+
+        .upload-group label {
+            display: block;
+            font-size: 12px;
+            font-weight: bold;
+            color: var(--promo);
+            margin-bottom: 6px;
+        }
+
+        input[type="file"] {
+            background: #fff;
+            padding: 6px;
+            font-size: 12px;
+            margin: 3px 0;
+        }
+
         /* Tabs Nav */
         .nav-tabs { display: flex; justify-content: flex-start; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
         .tab { padding: 14px 18px; cursor: pointer; font-weight: bold; color: #888; border-bottom: 3px solid transparent; font-size: 14px; transition: all 0.2s; flex-shrink: 0; }
@@ -207,7 +252,7 @@
         </div>
 
         <div class="header-actions">
-            <a href="https://maps.google.com/?q=Jl.+Borong+Raya+2+Makassar" target="_blank" class="btn-header btn-maps">
+            <a href="https://maps.app.goo.gl/tGnuXmME3ktJLZus9" target="_blank" class="btn-header btn-maps">
                 🗺️ Lokasi Toko
             </a>
             <a href="https://api.whatsapp.com/send?phone=62895411452229&text=Halo%20Asheeqa%20Printing,%20saya%20ingin%20bertanya%20mengenai%20layanan%20percetakan" target="_blank" class="btn-header btn-wa-header">
@@ -233,24 +278,35 @@
         
         <input type="text" id="nama" placeholder="Nama Produk">
         
-        <select id="kelompok">
-            <option value="Normal">Normal</option>
-            <option value="Hotprint">Hotprint</option>
-            <option value="Custom">Custom</option>
-        </select>
+        <div style="display: flex; gap: 10px;">
+            <select id="kelompok" style="flex: 1;">
+                <option value="Normal">Normal</option>
+                <option value="Hotprint">Hotprint</option>
+                <option value="Custom">Custom</option>
+            </select>
+            <input type="text" id="jenis" placeholder="Jenis (contoh: Softcover / Hardcover)" style="flex: 1;">
+        </div>
         
-        <input type="text" id="jenis" placeholder="Jenis (contoh: Softcover / Hardcover)">
-        <input type="number" id="hargaA" placeholder="Harga Asli (Rp)">
-        <input type="number" id="hargaP" placeholder="Harga Promo (Kosongkan jika tidak promo)">
-        
+        <div style="display: flex; gap: 10px;">
+            <input type="number" id="hargaA" placeholder="Harga Asli (Rp)">
+            <input type="number" id="hargaP" placeholder="Harga Promo (Kosongkan jika tidak promo)">
+        </div>
+
         <label class="checkbox-container">
             <input type="checkbox" id="isReady"> Tandai sebagai Produk Ready
         </label>
 
         <textarea id="desk" rows="3" placeholder="Deskripsi produk..."></textarea>
-        <p style="font-size:11px; color:var(--promo); margin:8px 0 4px;">*Upload Foto Baru (Opsional, Maksimal 5):</p>
-        <input type="file" id="f1" accept="image/*"><input type="file" id="f2" accept="image/*"><input type="file" id="f3" accept="image/*">
-        <input type="file" id="f4" accept="image/*"><input type="file" id="f5" accept="image/*">
+        
+        <!-- Upload Foto Rapi -->
+        <div class="upload-group">
+            <label>*Upload Foto Baru (Opsional, Maksimal 5 Foto):</label>
+            <input type="file" id="f1" accept="image/*">
+            <input type="file" id="f2" accept="image/*">
+            <input type="file" id="f3" accept="image/*">
+            <input type="file" id="f4" accept="image/*">
+            <input type="file" id="f5" accept="image/*">
+        </div>
         
         <button onclick="simpan()" id="btnSave" style="background:var(--dark); color:white; font-weight:bold;">SIMPAN DATA</button>
         <button onclick="hapusProduk()" id="btnDel" style="background:red; color:white; display:none;">HAPUS PRODUK</button>
@@ -292,7 +348,7 @@
         let db = [], cart = [], activeProd = null, photos = [], currentIdx = 0;
         let touchX = 0, fullTouchX = 0, initialDist = -1, currentScale = 1;
 
-        // Helper untu Sanitasi Karakter (XSS Prevention)
+        // Helper untuk Sanitasi Karakter (XSS Prevention)
         const escapeHtml = (str) => {
             if (!str) return '';
             return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
@@ -406,6 +462,7 @@
                 let t = document.createElement('img'); 
                 t.src = fixUrl(u); 
                 t.className = 'thumb' + (i === currentIdx ? ' active-thumb' : '');
+                t.onerror = function() { this.src = 'https://via.placeholder.com/55?text=No+Img'; };
                 t.onclick = () => { currentIdx = i; updateSlider(); };
                 thumbs.appendChild(t);
             });
@@ -517,7 +574,7 @@
             document.getElementById('edit-id').value = i.id;
             document.getElementById('nama').value = i.nama;
             document.getElementById('kelompok').value = i.kelompok;
-            document.getElementById('jenis').value = i.jenis;
+            document.getElementById('jenis').value = i.jenis || '';
             document.getElementById('hargaA').value = i.hargaAsli;
             document.getElementById('hargaP').value = i.hargaPromo;
             document.getElementById('isReady').checked = (i.isReady === 'YA' || i.isReady === true || i.isReady === 'true');
@@ -537,12 +594,14 @@
         function batalEdit() {
             document.getElementById('edit-id').value = '';
             document.getElementById('nama').value = '';
+            document.getElementById('jenis').value = '';
+            document.getElementById('kelompok').value = 'Normal';
             document.getElementById('hargaA').value = '';
             document.getElementById('hargaP').value = '';
             document.getElementById('isReady').checked = false;
             document.getElementById('desk').value = '';
             
-            // Clear input files saat batal
+            // Reset input file & hidden url
             for(let k = 1; k <= 5; k++) {
                 document.getElementById('f' + k).value = '';
                 document.getElementById('o' + k).value = '';
