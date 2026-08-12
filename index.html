@@ -39,16 +39,160 @@
             overflow: hidden;
         }
 
-        /* Efek Lengkungan Modern di bawah Header */
-        .header::after {
-            content: '';
-            position: absolute;
-            bottom: -15px;
-            left: -20%;
-            width: 140%;
-            height: 30px;
-            background: var(--bg);
-            border-radius: 50%;
+       /* Header Baru - Mewah & Berwarna */
+.header { 
+    /* Gradien Gelap Elegan khas Percetakan Premium */
+    background: linear-gradient(135deg, #1e272e 0%, #2d3436 50%, #1e1b18 100%); 
+    padding: 35px 20px 45px 20px; 
+    text-align: center; 
+    box-shadow: 0 10px 25px rgba(0,0,0,0.2); 
+    position: relative;
+    border-bottom: 3px solid var(--gold);
+    overflow: hidden;
+}
+
+/* Efek Cahaya / Glow Emas di Latar Belakang Header */
+.header::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(197, 160, 89, 0.25) 0%, rgba(0,0,0,0) 70%);
+    pointer-events: none;
+}
+
+/* Lengkungan Bawah */
+.header::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: -20%;
+    width: 140%;
+    height: 30px;
+    background: var(--bg);
+    border-radius: 50%;
+}
+
+.logo-container {
+    position: relative;
+    display: inline-block;
+    margin-bottom: 8px;
+    z-index: 2;
+}
+
+.logo { 
+    width: 90px; 
+    height: 90px; 
+    border-radius: 50%; 
+    border: 3px solid var(--gold); 
+    object-fit: contain; 
+    background: #fff; 
+    padding: 5px; 
+    box-sizing: border-box; 
+    box-shadow: 0 0 20px rgba(197, 160, 89, 0.5);
+    transition: transform 0.3s ease;
+}
+
+.logo:hover {
+    transform: scale(1.08);
+}
+
+/* Teks Nama Toko */
+.brand-name { 
+    font-size: 28px; 
+    font-weight: 900; 
+    color: #ffffff; /* Warna Putih Tegas */
+    margin: 6px 0 2px 0; 
+    letter-spacing: 0.5px;
+    text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+    position: relative;
+    z-index: 2;
+}
+
+/* Tagline */
+.tagline {
+    font-size: 12px;
+    color: var(--gold); /* Warna Emas */
+    font-weight: 700;
+    margin: 0 0 14px 0;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    position: relative;
+    z-index: 2;
+}
+
+/* Badges / Chips Keunggulan */
+.header-badges {
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    flex-wrap: wrap;
+    margin: 12px 0;
+    position: relative;
+    z-index: 2;
+}
+
+.badge-item {
+    background: rgba(255, 255, 255, 0.1);
+    color: #f1f2f6;
+    backdrop-filter: blur(5px);
+    font-size: 11px;
+    font-weight: 600;
+    padding: 5px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(197, 160, 89, 0.4);
+}
+
+/* Info Kontak & Tombol */
+.contact-info { 
+    font-size: 12px; 
+    color: #dcdde1; 
+    margin-top: 10px; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    position: relative;
+    z-index: 2;
+}
+
+.header-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 15px;
+    position: relative;
+    z-index: 2;
+}
+
+.btn-header {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-size: 12px;
+    font-weight: bold;
+    padding: 9px 16px;
+    border-radius: 25px;
+    text-decoration: none;
+    transition: all 0.2s ease;
+}
+
+.btn-maps {
+    background: #ffffff;
+    color: var(--dark);
+    border: 1px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+.btn-wa-header {
+    background: var(--wa);
+    color: white;
+    border: none;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.4);
+}
         }
 
         .logo-container {
