@@ -5,310 +5,74 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Asheeqa Printing</title>
     <style>
-        :root { 
-            --wa: #25D366; 
-            --gold: #c5a059; 
-            --dark: #2d3436; 
-            --bg: #f9f9fb; 
-            --promo: #d63031; 
-            --ready: #27ae60;
-        }
-
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background: var(--bg); 
-            margin: 0; 
-            padding-bottom: 90px; 
-            color: #333; 
-        }
+        :root { --wa: #25D366; --gold: #c5a059; --dark: #2d3436; --bg: #f9f9fb; --promo: #d63031; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 80px; color: #333; }
         
-        /* Header Soft Luxury Gold - Elegan & Menyatu dengan Konten */
-/* Header Soft Luxury Gold - Elegan & Menyatu dengan Konten */
-.header { 
-    background: linear-gradient(180deg, #fceecb 0%, #f7e3b5 60%, #ffffff 100%); 
-    padding: 30px 20px 25px 20px; 
-    text-align: center; 
-    position: relative;
-    border-bottom: 2px solid #e0c896;
-}
-
-.logo-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 6px;
-}
-
-.logo { 
-    width: 85px; 
-    height: 85px; 
-    border-radius: 50%; 
-    border: 3px solid #c5a059; 
-    object-fit: contain; 
-    background: #ffffff; 
-    padding: 4px; 
-    box-sizing: border-box; 
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-}
-
-/* Judul & Teks dibuat Gelap Tegas agar SANGAT JELAS dibaca */
-.brand-name { 
-    font-size: 26px; 
-    font-weight: 900; 
-    color: #1e272e; /* Warna gelap kontras */
-    margin: 6px 0 2px 0; 
-    letter-spacing: -0.5px;
-}
-
-.tagline {
-    font-size: 11px;
-    color: #8e6d28; /* Emas gelap yang kontras */
-    font-weight: 800;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-/* Badges / Chips */
-.header-badges {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 10px 0;
-}
-
-.badge-item {
-    background: #ffffff;
-    color: #574116;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid #dcc083;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-/* Alamat & Tombol */
-.contact-info { 
-    font-size: 12px; 
-    color: #2d3436; /* Gelap & Jelas */
-    font-weight: 600;
-    margin-top: 8px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.header-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.btn-header {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.2s;
-}
-
-.btn-maps {
-    background: #ffffff;
-    color: #2d3436;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.btn-wa-header {
-    background: #25D366;
-    color: white;
-    border: none;
-    box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
-}
-        .logo-container {
+        /* Header dengan Gradasi yang Disesuaikan */
+        .header { 
+            background: radial-gradient(circle at 50% 0%, #fffaee 0%, #fceac2 60%, #e6cb94 100%); 
+            padding: 30px 20px 25px 20px; 
+            text-align: center; 
             position: relative;
-            display: inline-block;
-            margin-bottom: 6px;
+            border-bottom: 2px solid #d4b572;
+            box-shadow: 0 3px 15px rgba(197, 160, 89, 0.15);
         }
-
-        .logo { 
-            width: 85px; 
-            height: 85px; 
-            border-radius: 50%; 
-            border: 2px solid var(--gold); 
-            object-fit: contain; 
-            background: #fff; 
-            padding: 5px; 
-            box-sizing: border-box; 
-            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .brand-name { 
-            font-size: 26px; 
-            font-weight: 900; 
-            color: var(--dark); 
-            margin: 4px 0 2px 0; 
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 13px;
-            color: var(--gold);
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Chips / Badges Keunggulan */
-        .header-badges {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin: 10px 0;
-        }
-
-        .badge-item {
-            background: #f4efe4;
-            color: #7a602d;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid #e2d5b8;
-        }
-
-        /* Informasi Kontak & Action Buttons */
-        .contact-info { 
-            font-size: 12px; 
-            color: #555; 
-            margin-top: 10px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .header-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 12px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn-header {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 8px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-maps {
-            background: #f0f0f0;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-
-        .btn-wa-header {
-            background: var(--wa);
-            color: white;
-            border: none;
-            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-        }
-
-        /* Admin Box (Diperbarui) */
-        .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        input, select, textarea, button { width: 100%; padding: 12px; margin: 6px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
-        .checkbox-container { display: flex; align-items: center; gap: 8px; margin: 8px 0; font-size: 14px; font-weight: bold; color: var(--ready); cursor: pointer; }
-        .checkbox-container input { width: auto; margin: 0; cursor: pointer; }
-        button { cursor: pointer; transition: opacity 0.2s; }
-        button:active { opacity: 0.8; }
+        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 10px; object-fit: contain; background: white; padding: 8px; box-sizing: border-box; }
+        .brand-name { font-size: 28px; font-weight: 800; color: var(--dark); margin: 0; }
+        .brand-subtitle { font-size: 11px; font-weight: 700; color: #b89753; letter-spacing: 1.5px; text-transform: uppercase; margin: 4px 0 12px 0; }
         
-        /* Area Upload Foto Rapi */
-        .upload-group {
-            background: #fdfdfd;
-            padding: 12px;
-            border: 1px dashed var(--gold);
-            border-radius: 10px;
-            margin: 10px 0;
-        }
+        /* Badge Keunggulan di Header */
+        .header-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .h-badge { background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.3); color: #8c6e31; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
 
-        .upload-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--promo);
-            margin-bottom: 6px;
-        }
+        .header-address { font-size: 12px; color: #666; margin-bottom: 15px; font-weight: 500; }
 
-        input[type="file"] {
-            background: #fff;
-            padding: 6px;
-            font-size: 12px;
-            margin: 3px 0;
-        }
+        /* Tombol Aksi Header */
+        .header-actions { display: flex; justify-content: center; gap: 10px; margin-top: 5px; }
+        .btn-action { padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.2s; }
+        .btn-location { background: white; color: var(--dark); border: 1px solid #ddd; }
+        .btn-wa-header { background: var(--wa); color: white; border: none; }
 
-        /* Tabs Nav */
-        .nav-tabs { display: flex; justify-content: flex-start; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-        .tab { padding: 14px 18px; cursor: pointer; font-weight: bold; color: #888; border-bottom: 3px solid transparent; font-size: 14px; transition: all 0.2s; flex-shrink: 0; }
+        /* Admin */
+        .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); }
+        input, select, textarea, button { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        
+        /* Tabs */
+        .nav-tabs { display: flex; justify-content: center; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; }
+        .tab { padding: 15px 15px; cursor: pointer; font-weight: bold; color: #aaa; border-bottom: 3px solid transparent; white-space: nowrap; font-size: 14px; }
         .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-        /* Grid Catalog */
-        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.06); position: relative; display: flex; flex-direction: column; justify-content: space-between; }
-        .card img { width: 100%; height: 160px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-
-        /* Badges */
-        .badge-ready { position: absolute; top: 8px; left: 8px; background: var(--ready); color: white; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: bold; z-index: 5; pointer-events: none; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-
-        .info { padding: 10px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; }
-        .price-container { display: flex; flex-direction: column; align-items: center; min-height: 38px; justify-content: center; margin-top: 4px; }
+        /* Grid & Card */
+        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 180px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #eee; }
+        
+        .info { padding: 12px; text-align: center; }
+        .price-container { display: flex; flex-direction: column; align-items: center; min-height: 40px; justify-content: center; }
         .price-old { text-decoration: line-through; color: #999; font-size: 11px; }
-        .price-new { color: var(--promo); font-weight: 800; font-size: 14px; }
+        .price-new { color: var(--promo); font-weight: 800; font-size: 15px; }
 
         /* Modal Detail */
-        #modal-detail { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:1000; overflow-y: auto; }
-        .modal-content { background: white; width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
+        #modal-detail { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; overflow-y: auto; }
+        .modal-content { background: white; width: 100%; max-width: 450px; margin: 0 auto; min-height: 100vh; position: relative; }
         
-        .img-slider-box { width: 100%; height: 350px; overflow: hidden; background: #f4f4f4; display: flex; align-items: center; justify-content: center; position: relative; touch-action: pan-y; }
-        .main-view { width: 100%; height: 100%; object-fit: contain; cursor: zoom-in; }
+        .img-slider-box { width: 100%; height: 380px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; position: relative; touch-action: pan-y; }
+        .main-view { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; cursor: zoom-in; }
 
-        .slide-dots { display: flex; justify-content: center; gap: 6px; padding: 10px; background: #fff; }
-        .dot { width: 8px; height: 8px; background: #ddd; border-radius: 50%; transition: 0.3s; }
-        .dot.active { background: var(--gold); width: 18px; border-radius: 10px; }
+        .slide-dots { display: flex; justify-content: center; gap: 5px; padding: 10px; background: #fff; }
+        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; transition: 0.3s; }
+        .dot.active { background: var(--gold); width: 20px; border-radius: 10px; }
 
-        .thumb-list { display: flex; gap: 8px; padding: 10px 15px; overflow-x: auto; background: #fafafa; border-top: 1px solid #eee; }
-        .thumb { width: 55px; height: 55px; object-fit: cover; border-radius: 6px; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
+        .thumb-list { display: flex; gap: 8px; padding: 10px; overflow-x: auto; background: #eee; }
+        .thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
         .active-thumb { border-color: var(--gold); }
 
-        /* Fullscreen Image View */
-        #fullscreen-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; justify-content: center; align-items: center; overflow: hidden; }
-        #full-img { max-width: 100%; max-height: 100%; transition: transform 0.2s ease, opacity 0.2s ease; user-select: none; }
-        .close-full { position: absolute; top: 20px; right: 20px; color: white; font-size: 28px; cursor: pointer; z-index: 2001; background: rgba(0,0,0,0.6); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+        /* Fullscreen View */
+        #fullscreen-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 2000; justify-content: center; align-items: center; overflow: hidden; touch-action: none; }
+        #full-img { max-width: 100%; max-height: 100%; transition: transform 0.3s ease, opacity 0.2s ease; user-select: none; }
+        .close-full { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; font-weight: bold; cursor: pointer; z-index: 2001; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
 
-        /* Cart Floating Button */
-        .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--dark); color: white; padding: 14px 22px; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 999; border: 2px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; }
+        .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--dark); color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 999; border: 2px solid var(--gold); }
     </style>
 </head>
 <body>
@@ -321,14 +85,13 @@
         <div class="header-badges">
             <span class="h-badge">⚡ Cetak Cepat</span>
             <span class="h-badge">🎯 Hasil Presisi</span>
-            <span class="h-badge">💡 Banyak Pilihan Warna</span>
-            <span class="h-badge">Bisa Custom Warna dan Desain</span>
+            <span class="h-badge">💡 Banyak Pilihan</span>
         </div>
 
         <div class="header-address">📍 Jl. Borong Raya 2 - Makassar</div>
 
         <div class="header-actions">
-            <a href="https://maps.app.goo.gl/jA8MsLc4bnSojwa36" target="_blank" class="btn-action btn-location">📖 Lokasi Toko</a>
+            <a href="https://maps.app.goo.gl/hkTHH6mdsT14esfZ7" target="_blank" class="btn-action btn-location">📖 Lokasi Toko</a>
             <a href="https://api.whatsapp.com/send?phone=6289699910769&text=Halo%20Asheeqa%20Printing,%20saya%20ingin%20bertanya" target="_blank" class="btn-action btn-wa-header">💬 Hubungi Kami</a>
         </div>
     </div>
@@ -356,10 +119,12 @@
         <input type="number" id="hargaA" placeholder="Harga Asli">
         <input type="number" id="hargaP" placeholder="Harga Promo">
         <textarea id="desk" placeholder="Deskripsi..."></textarea>
-        <p style="font-size:11px; color:var(--promo); margin:10px 0 0;">*Upload file (Maks 5)</p>
-        <input type="file" id="f1" accept="image/*"><input type="file" id="f2" accept="image/*"><input type="file" id="f3" accept="image/*">
-        <input type="file" id="f4" accept="image/*"><input type="file" id="f5" accept="image/*">
-        <button onclick="simpan()" id="btnSave" style="background:var(--dark); color:white; font-weight:bold;">SIMPAN</button>
+        
+        <p style="font-size:11px; color:var(--promo); margin:10px 0 0;">*Upload file gambar sekaligus (Maks 5 gambar dalam 1 kali klik)</p>
+        <input type="file" id="multiFiles" accept="image/*" multiple max="5">
+        <div id="preview-box" style="display: flex; gap: 5px; margin-top: 5px; overflow-x: auto;"></div>
+
+        <button onclick="simpan()" id="btnSave" style="background:var(--dark); color:white; font-weight:bold; margin-top:10px;">SIMPAN</button>
         <button onclick="hapusProduk()" id="btnDel" style="background:red; color:white; display:none;">HAPUS</button>
         <button onclick="location.reload()" style="background:#eee;">BATAL</button>
     </div>
@@ -522,6 +287,30 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
+        // Preview kecil untuk pilihan multi file
+        document.getElementById('multiFiles').addEventListener('change', function(e) {
+            const box = document.getElementById('preview-box');
+            box.innerHTML = '';
+            if(this.files.length > 5) {
+                alert("Maksimal hanya boleh memilih 5 gambar!");
+                this.value = '';
+                return;
+            }
+            Array.from(this.files).forEach(file => {
+                const reader = new FileReader();
+                reader.onload = function(evt) {
+                    const img = document.createElement('img');
+                    img.src = evt.target.result;
+                    img.style.width = '45px';
+                    img.style.height = '45px';
+                    img.style.objectFit = 'cover';
+                    img.style.borderRadius = '4px';
+                    box.appendChild(img);
+                }
+                reader.readAsDataURL(file);
+            });
+        });
+
         async function simpan() {
             const btn = document.getElementById('btnSave');
             btn.disabled = true; btn.innerText = "⏳ Mengunggah...";
@@ -537,9 +326,13 @@
             p.append('hargaAsli', document.getElementById('hargaA').value);
             p.append('hargaPromo', document.getElementById('hargaP').value);
             p.append('deskripsi', document.getElementById('desk').value);
+            
+            const files = document.getElementById('multiFiles').files;
             for(let k=1; k<=5; k++) {
                 p.append('old'+k, document.getElementById('o'+k).value);
-                p.append('img'+k, await toB64(document.getElementById('f'+k).files[0]));
+                // Mengambil file dari input multiple jika tersedia, indeks ke-(k-1)
+                const fileToUpload = files[k-1] || null;
+                p.append('img'+k, await toB64(fileToUpload));
             }
             await fetch(scriptURL, { method: 'POST', body: p });
             location.reload();
