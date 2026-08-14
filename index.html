@@ -4,536 +4,195 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Katalog Asheeqa Printing</title>
-    
-    <!-- Open Graph Meta Tags untuk Link Preview WhatsApp/Medsos -->
-    <meta property="og:title" content="Katalog Asheeqa Printing - Percetakan & Undangan">
-    <meta property="og:description" content="Cetak cepat, hasil presisi, dan banyak pilihan undangan & produk percetakan di Makassar.">
-    <meta property="og:image" content="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500">
-
     <style>
-        :root { 
-            --wa: #25D366; 
-            --gold: #c5a059; 
-            --dark: #2d3436; 
-            --bg: #f9f9fb; 
-            --promo: #d63031; 
-            --ready: #27ae60;
-        }
-
-        body { 
-            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif; 
-            background: var(--bg); 
-            margin: 0; 
-            padding-bottom: 90px; 
-            color: #333; 
-        }
+        :root { --wa: #25D366; --gold: #c5a059; --dark: #2d3436; --bg: #f9f9fb; --promo: #d63031; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 80px; color: #333; }
         
-        /* Header Soft Luxury Gold - Elegan & Menyatu dengan Konten */
-/* Header Soft Luxury Gold - Elegan & Menyatu dengan Konten */
-.header { 
-    background: linear-gradient(180deg, #fceecb 0%, #f7e3b5 60%, #ffffff 100%); 
-    padding: 30px 20px 25px 20px; 
-    text-align: center; 
-    position: relative;
-    border-bottom: 2px solid #e0c896;
-}
-
-.logo-container {
-    position: relative;
-    display: inline-block;
-    margin-bottom: 6px;
-}
-
-.logo { 
-    width: 85px; 
-    height: 85px; 
-    border-radius: 50%; 
-    border: 3px solid #c5a059; 
-    object-fit: contain; 
-    background: #ffffff; 
-    padding: 4px; 
-    box-sizing: border-box; 
-    box-shadow: 0 4px 15px rgba(197, 160, 89, 0.3);
-}
-
-/* Judul & Teks dibuat Gelap Tegas agar SANGAT JELAS dibaca */
-.brand-name { 
-    font-size: 26px; 
-    font-weight: 900; 
-    color: #1e272e; /* Warna gelap kontras */
-    margin: 6px 0 2px 0; 
-    letter-spacing: -0.5px;
-}
-
-.tagline {
-    font-size: 11px;
-    color: #8e6d28; /* Emas gelap yang kontras */
-    font-weight: 800;
-    margin: 0 0 10px 0;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-}
-
-/* Badges / Chips */
-.header-badges {
-    display: flex;
-    justify-content: center;
-    gap: 6px;
-    flex-wrap: wrap;
-    margin: 10px 0;
-}
-
-.badge-item {
-    background: #ffffff;
-    color: #574116;
-    font-size: 11px;
-    font-weight: 700;
-    padding: 4px 12px;
-    border-radius: 20px;
-    border: 1px solid #dcc083;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.03);
-}
-
-/* Alamat & Tombol */
-.contact-info { 
-    font-size: 12px; 
-    color: #2d3436; /* Gelap & Jelas */
-    font-weight: 600;
-    margin-top: 8px; 
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 5px;
-}
-
-.header-actions {
-    display: flex;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 12px;
-}
-
-.btn-header {
-    display: inline-flex;
-    align-items: center;
-    gap: 6px;
-    font-size: 12px;
-    font-weight: bold;
-    padding: 8px 16px;
-    border-radius: 20px;
-    text-decoration: none;
-    transition: all 0.2s;
-}
-
-.btn-maps {
-    background: #ffffff;
-    color: #2d3436;
-    border: 1px solid #ccc;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-}
-
-.btn-wa-header {
-    background: #25D366;
-    color: white;
-    border: none;
-    box-shadow: 0 3px 8px rgba(37, 211, 102, 0.3);
-}
-        .logo-container {
-            position: relative;
-            display: inline-block;
-            margin-bottom: 6px;
+        /* Header Baru */
+        .header { 
+            background: linear-gradient(to bottom, #fff6df, #ffffff); 
+            padding: 30px 15px 20px 15px; 
+            text-align: center; 
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05); 
         }
-
-        .logo { 
-            width: 85px; 
-            height: 85px; 
-            border-radius: 50%; 
-            border: 2px solid var(--gold); 
-            object-fit: contain; 
-            background: #fff; 
-            padding: 5px; 
-            box-sizing: border-box; 
-            box-shadow: 0 4px 12px rgba(197, 160, 89, 0.25);
-            transition: transform 0.3s ease;
-        }
-
-        .logo:hover {
-            transform: scale(1.05);
-        }
-
-        .brand-name { 
-            font-size: 26px; 
-            font-weight: 900; 
-            color: var(--dark); 
-            margin: 4px 0 2px 0; 
-            letter-spacing: -0.5px;
-        }
-
-        .tagline {
-            font-size: 13px;
-            color: var(--gold);
-            font-weight: 600;
-            margin: 0 0 10px 0;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-
-        /* Chips / Badges Keunggulan */
-        .header-badges {
-            display: flex;
-            justify-content: center;
-            gap: 6px;
-            flex-wrap: wrap;
-            margin: 10px 0;
-        }
-
-        .badge-item {
-            background: #f4efe4;
-            color: #7a602d;
-            font-size: 11px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 20px;
-            border: 1px solid #e2d5b8;
-        }
-
-        /* Informasi Kontak & Action Buttons */
-        .contact-info { 
-            font-size: 12px; 
-            color: #555; 
-            margin-top: 10px; 
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 5px;
-            flex-wrap: wrap;
-        }
-
-        .header-actions {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            margin-top: 12px;
-            position: relative;
-            z-index: 2;
-        }
-
-        .btn-header {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            font-size: 12px;
-            font-weight: bold;
-            padding: 8px 14px;
-            border-radius: 20px;
-            text-decoration: none;
-            transition: all 0.2s ease;
-        }
-
-        .btn-maps {
-            background: #f0f0f0;
-            color: #333;
-            border: 1px solid #ddd;
-        }
-
-        .btn-wa-header {
-            background: var(--wa);
-            color: white;
-            border: none;
-            box-shadow: 0 2px 8px rgba(37, 211, 102, 0.3);
-        }
-
-        /* Admin Box (Diperbarui) */
-        .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); box-shadow: 0 4px 12px rgba(0,0,0,0.05); }
-        input, select, textarea, button { width: 100%; padding: 12px; margin: 6px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; font-size: 14px; }
-        .checkbox-container { display: flex; align-items: center; gap: 8px; margin: 8px 0; font-size: 14px; font-weight: bold; color: var(--ready); cursor: pointer; }
-        .checkbox-container input { width: auto; margin: 0; cursor: pointer; }
-        button { cursor: pointer; transition: opacity 0.2s; }
-        button:active { opacity: 0.8; }
+        .logo { width: 80px; height: 80px; border-radius: 50%; border: 2px solid var(--gold); margin-bottom: 10px; object-fit: contain; background: white; padding: 8px; box-sizing: border-box; }
+        .brand-name { font-size: 28px; font-weight: 800; color: var(--dark); margin: 0; }
+        .brand-subtitle { font-size: 11px; font-weight: 700; color: #b89753; letter-spacing: 1.5px; text-transform: uppercase; margin: 4px 0 12px 0; }
         
-        /* Area Upload Foto Rapi */
-        .upload-group {
-            background: #fdfdfd;
-            padding: 12px;
-            border: 1px dashed var(--gold);
-            border-radius: 10px;
-            margin: 10px 0;
-        }
+        /* Badge Keunggulan di Header */
+        .header-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
+        .h-badge { background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.3); color: #8c6e31; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
 
-        .upload-group label {
-            display: block;
-            font-size: 12px;
-            font-weight: bold;
-            color: var(--promo);
-            margin-bottom: 6px;
-        }
+        .header-address { font-size: 12px; color: #666; margin-bottom: 15px; font-weight: 500; }
 
-        input[type="file"] {
-            background: #fff;
-            padding: 6px;
-            font-size: 12px;
-            margin: 3px 0;
-        }
+        /* Tombol Aksi Header */
+        .header-actions { display: flex; justify-content: center; gap: 10px; margin-top: 5px; }
+        .btn-action { padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.2s; }
+        .btn-location { background: white; color: var(--dark); border: 1px solid #ddd; }
+        .btn-wa-header { background: var(--wa); color: white; border: none; }
 
-        /* Tabs Nav */
-        .nav-tabs { display: flex; justify-content: flex-start; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; white-space: nowrap; -webkit-overflow-scrolling: touch; }
-        .tab { padding: 14px 18px; cursor: pointer; font-weight: bold; color: #888; border-bottom: 3px solid transparent; font-size: 14px; transition: all 0.2s; flex-shrink: 0; }
+        /* Admin */
+        .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); }
+        input, select, textarea, button { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
+        
+        /* Tabs */
+        .nav-tabs { display: flex; justify-content: center; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; }
+        .tab { padding: 15px 15px; cursor: pointer; font-weight: bold; color: #aaa; border-bottom: 3px solid transparent; white-space: nowrap; font-size: 14px; }
         .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-        /* Grid Catalog */
-        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 3px 8px rgba(0,0,0,0.06); position: relative; display: flex; flex-direction: column; justify-content: space-between; }
-        .card img { width: 100%; height: 160px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #f0f0f0; }
-
-        /* Badges */
-        .badge-ready { position: absolute; top: 8px; left: 8px; background: var(--ready); color: white; padding: 3px 8px; border-radius: 6px; font-size: 10px; font-weight: bold; z-index: 5; pointer-events: none; box-shadow: 0 2px 5px rgba(0,0,0,0.2); }
-
-        .info { padding: 10px; text-align: center; display: flex; flex-direction: column; justify-content: space-between; flex-grow: 1; }
-        .price-container { display: flex; flex-direction: column; align-items: center; min-height: 38px; justify-content: center; margin-top: 4px; }
+        /* Grid & Card */
+        .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; }
+        .card img { width: 100%; height: 180px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #eee; }
+        
+        .info { padding: 12px; text-align: center; }
+        .price-container { display: flex; flex-direction: column; align-items: center; min-height: 40px; justify-content: center; }
         .price-old { text-decoration: line-through; color: #999; font-size: 11px; }
-        .price-new { color: var(--promo); font-weight: 800; font-size: 14px; }
+        .price-new { color: var(--promo); font-weight: 800; font-size: 15px; }
 
         /* Modal Detail */
-        #modal-detail { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.85); z-index:1000; overflow-y: auto; }
-        .modal-content { background: white; width: 100%; max-width: 480px; margin: 0 auto; min-height: 100vh; position: relative; }
+        #modal-detail { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; overflow-y: auto; }
+        .modal-content { background: white; width: 100%; max-width: 450px; margin: 0 auto; min-height: 100vh; position: relative; }
         
-        .img-slider-box { width: 100%; height: 350px; overflow: hidden; background: #f4f4f4; display: flex; align-items: center; justify-content: center; position: relative; touch-action: pan-y; }
-        .main-view { width: 100%; height: 100%; object-fit: contain; cursor: zoom-in; }
+        .img-slider-box { width: 100%; height: 380px; overflow: hidden; background: #f0f0f0; display: flex; align-items: center; justify-content: center; position: relative; touch-action: pan-y; }
+        .main-view { width: 100%; height: 100%; object-fit: contain; transition: transform 0.3s ease; cursor: zoom-in; }
 
-        .slide-dots { display: flex; justify-content: center; gap: 6px; padding: 10px; background: #fff; }
-        .dot { width: 8px; height: 8px; background: #ddd; border-radius: 50%; transition: 0.3s; }
-        .dot.active { background: var(--gold); width: 18px; border-radius: 10px; }
+        .slide-dots { display: flex; justify-content: center; gap: 5px; padding: 10px; background: #fff; }
+        .dot { width: 8px; height: 8px; background: #ccc; border-radius: 50%; transition: 0.3s; }
+        .dot.active { background: var(--gold); width: 20px; border-radius: 10px; }
 
-        .thumb-list { display: flex; gap: 8px; padding: 10px 15px; overflow-x: auto; background: #fafafa; border-top: 1px solid #eee; }
-        .thumb { width: 55px; height: 55px; object-fit: cover; border-radius: 6px; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
+        .thumb-list { display: flex; gap: 8px; padding: 10px; overflow-x: auto; background: #eee; }
+        .thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
         .active-thumb { border-color: var(--gold); }
 
-        /* Fullscreen Image View */
-        #fullscreen-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: #000; z-index: 2000; justify-content: center; align-items: center; overflow: hidden; }
-        #full-img { max-width: 100%; max-height: 100%; transition: transform 0.2s ease, opacity 0.2s ease; user-select: none; }
-        .close-full { position: absolute; top: 20px; right: 20px; color: white; font-size: 28px; cursor: pointer; z-index: 2001; background: rgba(0,0,0,0.6); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
+        /* Fullscreen View */
+        #fullscreen-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 2000; justify-content: center; align-items: center; overflow: hidden; touch-action: none; }
+        #full-img { max-width: 100%; max-height: 100%; transition: transform 0.3s ease, opacity 0.2s ease; user-select: none; }
+        .close-full { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; font-weight: bold; cursor: pointer; z-index: 2001; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
 
-        /* Cart Floating Button */
-        .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--dark); color: white; padding: 14px 22px; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 999; border: 2px solid var(--gold); box-shadow: 0 4px 15px rgba(0,0,0,0.2); font-size: 14px; }
+        .cart-btn { position: fixed; bottom: 20px; right: 20px; background: var(--dark); color: white; padding: 15px 25px; border-radius: 50px; font-weight: bold; cursor: pointer; z-index: 999; border: 2px solid var(--gold); }
     </style>
 </head>
 <body>
 
-    <!-- Header Kop Web -->
     <div class="header">
-        <div class="logo-container">
-            <img src="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500" class="logo" alt="Logo Asheeqa Printing" onerror="this.src='https://via.placeholder.com/85?text=Logo'">
-        </div>
-        
+        <img src="https://drive.google.com/thumbnail?id=1F055wulsiC-LDjW_NMZ4yXsMSCDj53TW&sz=w500" class="logo" alt="Logo">
         <h1 class="brand-name">Asheeqa Printing</h1>
-        <div class="tagline">Katalog Undangan & Percetakan</div>
-
+        <div class="brand-subtitle">Katalog Undangan & Percetakan</div>
+        
         <div class="header-badges">
-            <span class="badge-item">⚡ Cetak Cepat</span>
-            <span class="badge-item">🎯 Hasil Presisi</span>
-            <span class="badge-item">💡 Banyak Choice</span>
+            <span class="h-badge">⚡ Cetak Cepat</span>
+            <span class="h-badge">🎯 Hasil Presisi</span>
+            <span class="h-badge">💡 Banyak Choice</span>
         </div>
 
-        <div class="contact-info">
-            <span>📍 Jl. Borong Raya 2 - Makassar</span>
-        </div>
+        <div class="header-address">📍 Jl. Borong Raya 2 - Makassar</div>
 
         <div class="header-actions">
-            <a href="https://maps.app.goo.gl/tGnuXmME3ktJLZus9" target="_blank" class="btn-header btn-maps">
-                🗺️ Lokasi Toko
-            </a>
-            <a href="https://api.whatsapp.com/send?phone=62895411452229&text=Halo%20Asheeqa%20Printing,%20saya%20ingin%20bertanya%20mengenai%20layanan%20percetakan" target="_blank" class="btn-header btn-wa-header">
-                💬 Hubungi Kami
-            </a>
+            <a href="https://maps.app.goo.gl/... (isi link Google Maps toko Anda)" target="_blank" class="btn-action btn-location">📖 Lokasi Toko</a>
+            <a href="https://api.whatsapp.com/send?phone=6289699910769&text=Halo%20Asheeqa%20Printing,%20saya%20ingin%20bertanya" target="_blank" class="btn-action btn-wa-header">💬 Hubungi Kami</a>
         </div>
     </div>
 
-    <!-- Navigasi Menu -->
     <div class="nav-tabs">
         <div class="tab active" onclick="filter('PROMO', this)">🔥 PROMO</div>
-        <div class="tab" onclick="filter('READY', this)">📦 Ready</div>
+        <div class="tab" onclick="filter('Ready', this)">📦 Ready</div>
         <div class="tab" onclick="filter('Normal', this)">✨ Normal</div>
         <div class="tab" onclick="filter('Hotprint', this)">🌟 Hotprint</div>
         <div class="tab" onclick="filter('Custom', this)">🎨 Custom</div>
     </div>
 
-    <!-- Form Admin -->
     <div id="admin-box" class="admin-box">
-        <h3 id="adm-title" style="margin-top:0;">Tambah / Edit Produk</h3>
+        <h3 id="adm-title">Tambah Produk Baru</h3>
         <input type="hidden" id="edit-id">
         <input type="hidden" id="o1"><input type="hidden" id="o2"><input type="hidden" id="o3"><input type="hidden" id="o4"><input type="hidden" id="o5">
-        
         <input type="text" id="nama" placeholder="Nama Produk">
-        
-        <div style="display: flex; gap: 10px;">
-            <select id="kelompok" style="flex: 1;">
-                <option value="Normal">Normal</option>
-                <option value="Hotprint">Hotprint</option>
-                <option value="Custom">Custom</option>
-            </select>
-            <input type="text" id="jenis" placeholder="Jenis (contoh: Softcover / Hardcover)" style="flex: 1;">
-        </div>
-        
-        <div style="display: flex; gap: 10px;">
-            <input type="number" id="hargaA" placeholder="Harga Asli (Rp)">
-            <input type="number" id="hargaP" placeholder="Harga Promo (Kosongkan jika tidak promo)">
-        </div>
-
-        <label class="checkbox-container">
-            <input type="checkbox" id="isReady"> Tandai sebagai Produk Ready
-        </label>
-
-        <textarea id="desk" rows="3" placeholder="Deskripsi produk..."></textarea>
-        
-        <!-- Upload Foto Rapi -->
-        <div class="upload-group">
-            <label>*Upload Foto Baru (Opsional, Maksimal 5 Foto):</label>
-            <input type="file" id="f1" accept="image/*">
-            <input type="file" id="f2" accept="image/*">
-            <input type="file" id="f3" accept="image/*">
-            <input type="file" id="f4" accept="image/*">
-            <input type="file" id="f5" accept="image/*">
-        </div>
-        
-        <button onclick="simpan()" id="btnSave" style="background:var(--dark); color:white; font-weight:bold;">SIMPAN DATA</button>
-        <button onclick="hapusProduk()" id="btnDel" style="background:red; color:white; display:none;">HAPUS PRODUK</button>
-        <button onclick="batalEdit()" style="background:#eee; color:#333;">BATAL</button>
+        <select id="kelompok">
+            <option value="Ready">Ready</option>
+            <option value="Normal">Normal</option>
+            <option value="Hotprint">Hotprint</option>
+            <option value="Custom">Custom</option>
+        </select>
+        <input type="text" id="jenis" placeholder="Jenis (Softcover/Hardcover)">
+        <input type="number" id="hargaA" placeholder="Harga Asli">
+        <input type="number" id="hargaP" placeholder="Harga Promo">
+        <textarea id="desk" placeholder="Deskripsi..."></textarea>
+        <p style="font-size:11px; color:var(--promo); margin:10px 0 0;">*Upload file (Maks 5)</p>
+        <input type="file" id="f1" accept="image/*"><input type="file" id="f2" accept="image/*"><input type="file" id="f3" accept="image/*">
+        <input type="file" id="f4" accept="image/*"><input type="file" id="f5" accept="image/*">
+        <button onclick="simpan()" id="btnSave" style="background:var(--dark); color:white; font-weight:bold;">SIMPAN</button>
+        <button onclick="hapusProduk()" id="btnDel" style="background:red; color:white; display:none;">HAPUS</button>
+        <button onclick="location.reload()" style="background:#eee;">BATAL</button>
     </div>
 
-    <div class="container" id="container">Sedang memuat data katalog...</div>
+    <div class="container" id="container">Memuat data...</div>
 
-    <!-- Modal Detail Produk -->
     <div id="modal-detail">
         <div class="modal-content">
-            <button onclick="tutupDetail()" style="width:100%; padding:15px; border:none; background:#2d3436; color:white; font-weight:bold; font-size:14px;">← KEMBALI KE KATALOG</button>
+            <button onclick="tutup()" style="width:100%; padding:15px; border:none; background:#333; color:white; font-weight:bold;">← KEMBALI</button>
             <div class="img-slider-box" id="slider-area">
-                <img id="v-img" class="main-view" alt="Gambar Produk" onerror="this.src='https://via.placeholder.com/500?text=No+Image'">
+                <img id="v-img" class="main-view">
             </div>
             <div class="slide-dots" id="v-dots"></div>
             <div class="thumb-list" id="v-thumbs"></div>
             <div style="padding:20px;">
-                <h2 id="v-nama" style="margin:0 0 5px 0; font-size:20px;"></h2>
-                <p id="v-jenis" style="color:var(--gold); font-weight:bold; margin:0 0 10px 0; font-size:14px;"></p>
-                <div id="v-harga" style="margin-bottom:15px;"></div>
+                <h2 id="v-nama" style="margin:0"></h2>
+                <p id="v-jenis" style="color:var(--gold); font-weight:bold; margin:5px 0;"></p>
                 <div id="v-desk" style="color:#555; font-size:14px; line-height:1.6; white-space: pre-wrap;"></div>
-                <button onclick="tambahKeKeranjang()" style="background:var(--wa); color:white; padding:16px; border:none; border-radius:12px; width:100%; font-weight:bold; margin-top:20px; font-size:15px;">🛒 TAMBAHKAN KE PESANAN</button>
+                <button onclick="tambahKeKeranjang()" style="background:var(--wa); color:white; padding:18px; border:none; border-radius:12px; width:100%; font-weight:bold; margin-top:20px;">🛒 TAMBAH KE PESANAN</button>
             </div>
         </div>
     </div>
 
-    <!-- Modal Fullscreen View -->
     <div id="fullscreen-view" ontouchstart="startFullTouch(event)" ontouchend="endFullTouch(event)">
         <span class="close-full" onclick="tutupFull()">×</span>
-        <img id="full-img" alt="Zoom Preview" ontouchstart="startZoom(event)" ontouchmove="doZoom(event)">
+        <img id="full-img" ontouchstart="startZoom(event)" ontouchmove="doZoom(event)">
     </div>
 
-    <!-- Cart Floating Button -->
     <div class="cart-btn" onclick="orderWA()">🛒 Pesanan (<span id="c-count">0</span>)</div>
 
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyxcNyq4dUZEXMXROj6Jq0ijzLlQv1SQUrN5pR931IQXj-A_Tn123tCDXSpGrMfHWSOvg/exec'; 
-        let db = [], cart = [], activeProd = null, photos = [], currentIdx = 0;
-        let touchX = 0, fullTouchX = 0, initialDist = -1, currentScale = 1;
+        let db = [], cart = [], activeProd = [], photos = [], currentIdx = 0;
+        let touchX = 0, fullTouchX = 0, initialDist = -1;
 
-        // Helper untuk Sanitasi Karakter (XSS Prevention)
-        const escapeHtml = (str) => {
-            if (!str) return '';
-            return String(str).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-        };
-
-        // Cek mode Admin
         const isAdmin = new URLSearchParams(window.location.search).get('mode') === 'admin';
         if (isAdmin) document.getElementById('admin-box').style.display = 'block';
 
-        // Parser URL Google Drive
-        const fixUrl = (u) => {
-            if (!u || u.length < 10) return "https://via.placeholder.com/300?text=No+Image";
-            let id = "";
-            if (u.includes('id=')) id = u.split('id=')[1].split('&')[0];
-            else if (u.includes('/d/')) id = u.split('/d/')[1].split('/')[0];
-            return id ? `https://drive.google.com/thumbnail?id=${id}&sz=w1000` : u;
-        };
+        const fixUrl = (u) => (u && u.length > 20) ? `https://drive.google.com/thumbnail?id=${u.includes('id=') ? u.split('id=')[1].split('&')[0] : u.split('/d/')[1]?.split('/')[0]}&sz=w1000` : "";
 
-        // Fetch Data Pertama Kali
         async function muat() {
-            try {
-                const r = await fetch(scriptURL);
-                db = await r.json();
-                filter('PROMO', document.querySelector('.tab'));
-            } catch(e) {
-                document.getElementById('container').innerHTML = `<p style="text-align:center; color:red; grid-column:1/-1;">Gagal memuat data. Silakan refresh halaman.</p>`;
-            }
+            const r = await fetch(scriptURL);
+            db = await r.json();
+            filter('PROMO', document.querySelector('.tab'));
         }
 
-        // Filter Kategori Tab
         function filter(kat, el) {
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            if(el) el.classList.add('active');
-            
+            el.classList.add('active');
             const cont = document.getElementById('container');
-            
-            let items = [];
-            if (kat === 'PROMO') {
-                items = db.filter(i => Number(i.hargaPromo) > 0);
-            } else if (kat === 'READY') {
-                items = db.filter(i => i.isReady === 'YA' || i.isReady === true || i.isReady === 'true');
-            } else {
-                items = db.filter(i => i.kelompok === kat);
-            }
-            
+            cont.innerHTML = '';
+            let items = kat === 'PROMO' ? db.filter(i => i.hargaPromo > 0) : db.filter(i => i.kelompok === kat);
             if(items.length === 0) {
-                cont.innerHTML = `<div style="grid-column:1/-1; text-align:center; color:#888; padding:30px;">Tidak ada produk untuk kategori ini.</div>`;
+                cont.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color:#888;">Tidak ada produk untuk kategori ini.</div>`;
                 return;
             }
-
-            // Membangun fragment string agar efisiensi render DOM maksimal
-            let htmlContent = '';
             items.forEach(i => {
-                let hAsli = parseInt(i.hargaAsli) || 0;
-                let hPromo = parseInt(i.hargaPromo) || 0;
-                let hargaHtml = hPromo > 0 
-                    ? `<div class="price-container"><span class="price-old">Rp ${hAsli.toLocaleString('id-ID')}</span><span class="price-new">Rp ${hPromo.toLocaleString('id-ID')}</span></div>` 
-                    : `<div class="price-container"><span class="price-new">Rp ${hAsli.toLocaleString('id-ID')}</span></div>`;
-                
-                let isItemReady = (i.isReady === 'YA' || i.isReady === true || i.isReady === 'true');
-                let badgeReadyHtml = isItemReady ? `<span class="badge-ready">READY</span>` : '';
-
-                htmlContent += `
-                    <div class="card">
-                        ${badgeReadyHtml}
-                        <img src="${fixUrl(i.url)}" onclick="buka('${escapeHtml(i.id)}')" loading="lazy" alt="${escapeHtml(i.nama)}" onerror="this.src='https://via.placeholder.com/300?text=No+Image'">
-                        <div class="info">
-                            <b style="font-size:13px; margin-bottom:4px; display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;">${escapeHtml(i.nama)}</b>
-                            ${hargaHtml}
-                            ${isAdmin ? `<button onclick="isiEdit('${escapeHtml(i.id)}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:8px; border-radius:5px; width:100%; font-size:12px;">EDIT</button>` : ''}
-                        </div>
-                    </div>`;
+                let harga = i.hargaPromo > 0 ? `<div class="price-container"><span class="price-old">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span><span class="price-new">Rp ${parseInt(i.hargaPromo).toLocaleString('id-ID')}</span></div>` : `<div class="price-container"><span class="price-new">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span></div>`;
+                cont.innerHTML += `<div class="card"><img src="${fixUrl(i.url)}" onclick="buka('${i.id}')"><div class="info"><b style="font-size:13px;">${i.nama}</b>${harga}${isAdmin ? `<button onclick="isiEdit('${i.id}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:5px; border-radius:5px; width:100%;">EDIT</button>` : ''}</div></div>`;
             });
-            cont.innerHTML = htmlContent;
         }
 
-        // Buka Detail Modal
         function buka(id) {
             activeProd = db.find(i => i.id == id);
-            if(!activeProd) return;
-
-            photos = [activeProd.url, activeProd.url2, activeProd.url3, activeProd.url4, activeProd.url5].filter(u => u && u.length > 10);
+            photos = [activeProd.url, activeProd.url2, activeProd.url3, activeProd.url4, activeProd.url5].filter(u => u && u.length > 20);
             currentIdx = 0;
             updateSlider();
-            
             document.getElementById('v-nama').innerText = activeProd.nama;
-            document.getElementById('v-jenis').innerText = activeProd.jenis || 'Katalog Undangan';
+            document.getElementById('v-jenis').innerText = activeProd.jenis;
             document.getElementById('v-desk').innerText = activeProd.deskripsi || "Detail produk Asheeqa Printing.";
-            
-            let hAsli = parseInt(activeProd.hargaAsli) || 0;
-            let hPromo = parseInt(activeProd.hargaPromo) || 0;
-            document.getElementById('v-harga').innerHTML = hPromo > 0 
-                ? `<span style="text-decoration:line-through; color:#888; font-size:14px;">Rp ${hAsli.toLocaleString('id-ID')}</span> <b style="color:var(--promo); font-size:18px; margin-left:8px;">Rp ${hPromo.toLocaleString('id-ID')}</b>`
-                : `<b style="color:var(--dark); font-size:18px;">Rp ${hAsli.toLocaleString('id-ID')}</b>`;
-
             document.getElementById('modal-detail').style.display = 'block';
-            document.body.style.overflow = 'hidden';
-            history.pushState({modal: true}, '', '#detail');
+            history.pushState({modal:true}, '', '#detail');
         }
 
         function updateSlider() {
@@ -546,209 +205,114 @@
             const thumbs = document.getElementById('v-thumbs');
             thumbs.innerHTML = '';
             photos.forEach((u, i) => {
-                let t = document.createElement('img'); 
-                t.src = fixUrl(u); 
-                t.className = 'thumb' + (i === currentIdx ? ' active-thumb' : '');
-                t.onerror = function() { this.src = 'https://via.placeholder.com/55?text=No+Img'; };
+                let t = document.createElement('img'); t.src = fixUrl(u); t.className = 'thumb' + (i === currentIdx ? ' active-thumb' : '');
                 t.onclick = () => { currentIdx = i; updateSlider(); };
                 thumbs.appendChild(t);
             });
         }
 
-        // Swipe Gesture Modal Detail
         const slider = document.getElementById('slider-area');
         slider.ontouchstart = e => touchX = e.touches[0].clientX;
         slider.ontouchend = e => {
             let diff = touchX - e.changedTouches[0].clientX;
-            if(Math.abs(diff) > 40) {
-                if(diff > 0 && currentIdx < photos.length - 1) currentIdx++;
+            if(Math.abs(diff) > 50) {
+                if(diff > 0 && currentIdx < photos.length-1) currentIdx++;
                 else if(diff < 0 && currentIdx > 0) currentIdx--;
                 updateSlider();
             }
         };
 
-        // Fullscreen Logic
         function bukaFull(url) {
             updateFullImage();
             document.getElementById('fullscreen-view').style.display = 'flex';
+            document.body.style.overflow = 'hidden';
         }
 
         function updateFullImage() {
             const fullImg = document.getElementById('full-img');
             fullImg.style.opacity = '0';
-            currentScale = 1;
-            fullImg.style.transform = `scale(1)`;
             setTimeout(() => {
                 fullImg.src = fixUrl(photos[currentIdx]);
+                fullImg.style.transform = "scale(1)";
                 fullImg.style.opacity = '1';
-            }, 100);
+            }, 150);
         }
 
-        function startFullTouch(e) { 
-            if(e.touches.length === 1) fullTouchX = e.touches[0].clientX; 
-        }
-
+        function startFullTouch(e) { if(e.touches.length === 1) fullTouchX = e.touches[0].clientX; }
         function endFullTouch(e) {
-            if(e.changedTouches.length === 1 && currentScale === 1) {
+            if(e.changedTouches.length === 1) {
                 let diff = fullTouchX - e.changedTouches[0].clientX;
-                if(Math.abs(diff) > 60) {
-                    if(diff > 0 && currentIdx < photos.length - 1) currentIdx++;
+                if(Math.abs(diff) > 70) {
+                    if(diff > 0 && currentIdx < photos.length-1) currentIdx++;
                     else if(diff < 0 && currentIdx > 0) currentIdx--;
-                    updateSlider(); 
-                    updateFullImage();
+                    updateSlider(); updateFullImage();
                 }
             }
         }
 
-        // Pinch Zoom Logic
-        function startZoom(e) { 
-            if(e.touches.length === 2) {
-                initialDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); 
-            }
-        }
+        function startZoom(e) { if(e.touches.length === 2) initialDist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY); }
         function doZoom(e) {
             if(e.touches.length === 2 && initialDist > 0) {
                 let dist = Math.hypot(e.touches[0].pageX - e.touches[1].pageX, e.touches[0].pageY - e.touches[1].pageY);
-                currentScale = Math.min(Math.max(dist / initialDist, 1), 3);
-                document.getElementById('full-img').style.transform = `scale(${currentScale})`;
+                let scale = Math.min(Math.max(dist / initialDist, 1), 3);
+                document.getElementById('full-img').style.transform = `scale(${scale})`;
             }
         }
 
-        function tutupFull() { 
-            document.getElementById('fullscreen-view').style.display = 'none'; 
-        }
+        function tutupFull() { document.getElementById('fullscreen-view').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function tutup() { if(window.location.hash === '#detail') history.back(); document.getElementById('modal-detail').style.display = 'none'; }
+        window.onpopstate = () => { tutup(); tutupFull(); };
 
-        function tutupDetail() { 
-            document.getElementById('modal-detail').style.display = 'none'; 
-            document.body.style.overflow = 'auto';
-            if(window.location.hash === '#detail') history.back();
-        }
+        function tambahKeKeranjang() { cart.push(activeProd.nama); document.getElementById('c-count').innerText = cart.length; alert("Ditambahkan!"); tutup(); }
+        function orderWA() { window.open(`https://api.whatsapp.com/send?phone=6289699910769&text=Halo Asheeqa Printing, saya mau pesan:%0A${cart.join('%0A')}`); }
 
-        window.onpopstate = () => { 
-            document.getElementById('fullscreen-view').style.display = 'none';
-            document.getElementById('modal-detail').style.display = 'none'; 
-            document.body.style.overflow = 'auto';
-        };
-
-        // Keranjang & WhatsApp Integration
-        function tambahKeKeranjang() { 
-            if(!activeProd) return;
-            cart.push(activeProd); 
-            document.getElementById('c-count').innerText = cart.length; 
-            alert(`"${activeProd.nama}" telah ditambahkan ke keranjang pesanan.`); 
-            tutupDetail(); 
-        }
-
-        function orderWA() { 
-            if(cart.length === 0) {
-                alert("Keranjang pesanan masih kosong. Silakan pilih produk terlebih dahulu.");
-                return;
-            }
-            
-            let itemText = cart.map((item, idx) => {
-                let h = item.hargaPromo > 0 ? item.hargaPromo : item.hargaAsli;
-                return `${idx + 1}. ${item.nama} (Rp ${parseInt(h).toLocaleString('id-ID')})`;
-            }).join('%0A');
-
-            let waMsg = `Halo Asheeqa Printing, saya mau bertanya / pesan produk berikut:%0A%0A${itemText}%0A%0AMohon info selengkapnya, terima kasih!`;
-            window.open(`https://api.whatsapp.com/send?phone=62895411452229&text=${waMsg}`, '_blank'); 
-        }
-
-        // Functions Admin
         function isiEdit(id) {
             const i = db.find(x => x.id == id);
-            if(!i) return;
             document.getElementById('edit-id').value = i.id;
             document.getElementById('nama').value = i.nama;
             document.getElementById('kelompok').value = i.kelompok;
-            document.getElementById('jenis').value = i.jenis || '';
+            document.getElementById('jenis').value = i.jenis;
             document.getElementById('hargaA').value = i.hargaAsli;
             document.getElementById('hargaP').value = i.hargaPromo;
-            document.getElementById('isReady').checked = (i.isReady === 'YA' || i.isReady === true || i.isReady === 'true');
-            document.getElementById('desk').value = i.deskripsi || '';
-            document.getElementById('o1').value = i.url || ""; 
-            document.getElementById('o2').value = i.url2 || "";
-            document.getElementById('o3').value = i.url3 || ""; 
-            document.getElementById('o4').value = i.url4 || "";
+            document.getElementById('desk').value = i.deskripsi;
+            document.getElementById('o1').value = i.url || ""; document.getElementById('o2').value = i.url2 || "";
+            document.getElementById('o3').value = i.url3 || ""; document.getElementById('o4').value = i.url4 || "";
             document.getElementById('o5').value = i.url5 || "";
-            
             document.getElementById('btnDel').style.display = 'block';
-            document.getElementById('btnSave').innerText = "UPDATE DATA PRODUK";
-            document.getElementById('adm-title').innerText = "Edit Produk: " + i.nama;
+            document.getElementById('btnSave').innerText = "UPDATE DATA";
             window.scrollTo({top: 0, behavior: 'smooth'});
-        }
-
-        function batalEdit() {
-            document.getElementById('edit-id').value = '';
-            document.getElementById('nama').value = '';
-            document.getElementById('jenis').value = '';
-            document.getElementById('kelompok').value = 'Normal';
-            document.getElementById('hargaA').value = '';
-            document.getElementById('hargaP').value = '';
-            document.getElementById('isReady').checked = false;
-            document.getElementById('desk').value = '';
-            
-            // Reset input file & hidden url
-            for(let k = 1; k <= 5; k++) {
-                document.getElementById('f' + k).value = '';
-                document.getElementById('o' + k).value = '';
-            }
-
-            document.getElementById('btnDel').style.display = 'none';
-            document.getElementById('btnSave').innerText = "SIMPAN DATA";
-            document.getElementById('adm-title').innerText = "Tambah / Edit Produk";
         }
 
         async function simpan() {
             const btn = document.getElementById('btnSave');
-            btn.disabled = true; 
-            btn.innerText = "⏳ Memproses data & foto...";
-
+            btn.disabled = true; btn.innerText = "⏳ Mengunggah...";
             const toB64 = f => !f ? "" : new Promise((res) => {
-                const r = new FileReader(); 
-                r.readAsDataURL(f); 
-                r.onload = () => res(r.result);
+                const r = new FileReader(); r.readAsDataURL(f); r.onload = () => res(r.result);
             });
-
-            try {
-                const p = new URLSearchParams();
-                p.append('action', document.getElementById('edit-id').value ? 'update' : 'add');
-                p.append('rowId', document.getElementById('edit-id').value);
-                p.append('nama', document.getElementById('nama').value);
-                p.append('kelompok', document.getElementById('kelompok').value);
-                p.append('jenis', document.getElementById('jenis').value);
-                p.append('hargaAsli', document.getElementById('hargaA').value);
-                p.append('hargaPromo', document.getElementById('hargaP').value);
-                p.append('isReady', document.getElementById('isReady').checked ? 'YA' : 'TIDAK');
-                p.append('deskripsi', document.getElementById('desk').value);
-
-                for(let k = 1; k <= 5; k++) {
-                    p.append('old' + k, document.getElementById('o' + k).value);
-                    let fileObj = document.getElementById('f' + k).files[0];
-                    p.append('img' + k, await toB64(fileObj));
-                }
-
-                await fetch(scriptURL, { method: 'POST', body: p });
-                alert("Data berhasil disimpan!");
-                location.reload();
-            } catch(e) {
-                alert("Gagal menyimpan data. Pastikan koneksi lancar.");
-                btn.disabled = false;
-                btn.innerText = "SIMPAN DATA";
-            }
-        }
-
-        async function hapusProduk() {
-            if(!confirm("Apakah Anda yakin ingin menghapus produk ini?")) return;
             const p = new URLSearchParams();
-            p.append('action', 'delete'); 
+            p.append('action', document.getElementById('edit-id').value ? 'update' : 'add');
             p.append('rowId', document.getElementById('edit-id').value);
+            p.append('nama', document.getElementById('nama').value);
+            p.append('kelompok', document.getElementById('kelompok').value);
+            p.append('jenis', document.getElementById('jenis').value);
+            p.append('hargaAsli', document.getElementById('hargaA').value);
+            p.append('hargaPromo', document.getElementById('hargaP').value);
+            p.append('deskripsi', document.getElementById('desk').value);
+            for(let k=1; k<=5; k++) {
+                p.append('old'+k, document.getElementById('o'+k).value);
+                p.append('img'+k, await toB64(document.getElementById('f'+k).files[0]));
+            }
             await fetch(scriptURL, { method: 'POST', body: p });
-            alert("Produk berhasil dihapus!");
             location.reload();
         }
 
-        // Jalankan aplikasi
+        async function hapusProduk() {
+            if(!confirm("Hapus produk?")) return;
+            const p = new URLSearchParams();
+            p.append('action', 'delete'); p.append('rowId', document.getElementById('edit-id').value);
+            await fetch(scriptURL, { method: 'POST', body: p });
+            location.reload();
+        }
         muat();
     </script>
 </body>
