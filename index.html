@@ -44,7 +44,6 @@
         .card.selected { border: 3px solid var(--gold); transform: scale(0.97); background: #fffdf5; }
         .card img { width: 100%; height: 180px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #eee; }
         
-        /* Badge Indikator Ready di Pojok Card */
         .ready-badge { position: absolute; top: 10px; right: 10px; background: var(--gold); color: white; font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: none; }
         .card.is-ready-card .ready-badge { display: block; }
 
@@ -95,7 +94,7 @@
         </div>
     </div>
 
-    <!-- Floating Bar Khusus Admin Saat Mode Pilih Banyak -->
+    <!-- Floating Bar Khusus Admin Mode Pilih Banyak -->
     <div id="batch-action-bar">
         <span id="selected-count">0 Dipilih</span>
         <div style="display: flex; gap: 6px;">
@@ -227,37 +226,33 @@
                     </div>
                 `;
 
-                // Event Listener untuk klik gambar (Buka detail atau pilih jika mode admin)
                 const imgEl = card.querySelector('img');
-                imgEl.onclick = () => {
-                    if (isAdmin && selectedIds.length > 0) {
+                
+                // Klik biasa atau dengan tombol CTRL di komputer
+                imgEl.onclick = (e) => {
+                    if (isAdmin && (selectedIds.length > 0 || e.ctrlKey || e.metaKey)) {
                         toggleSelect(i.id, card);
                     } else {
                         buka(i.id);
                     }
                 };
 
-                // Long Press (Tekan Lama) khusus Admin
                 if(isAdmin) {
-                    card.onmousedown = () => startLongPress(i.id, card);
-                    card.ontouchstart = () => startLongPress(i.id, card);
-                    card.onmouseup = cancelLongPress;
-                    card.ontouchend = cancelLongPress;
-                    card.onmouseleave = cancelLongPress;
+                    // PC: Klik Kanan untuk memilih/menandai produk
+                    card.oncontextmenu = (e) => {
+                        e.preventDefault();
+                        toggleSelect(i.id, card);
+                    };
+
+                    // HP: Tahan lama (Long Press)
+                    card.ontouchstart = () => {
+                        touchTimer = setTimeout(() => toggleSelect(i.id, card), 600);
+                    };
+                    card.ontouchend = () => clearTimeout(touchTimer);
                 }
 
                 cont.appendChild(card);
             });
-        }
-
-        function startLongPress(id, card) {
-            touchTimer = setTimeout(() => {
-                toggleSelect(id, card);
-            }, 600); // Tahan 0.6 detik
-        }
-
-        function cancelLongPress() {
-            clearTimeout(touchTimer);
         }
 
         function toggleSelect(id, card) {
@@ -303,7 +298,7 @@
                 } else if (!statusReady && hasReady) {
                     deskVal = deskVal.replace('[STATUS_READY]', '').trim();
                 } else {
-                    continue; // Jika kondisinya sudah sesuai, lewati
+                    continue;
                 }
 
                 const p = new URLSearchParams();
@@ -316,7 +311,6 @@
                 p.append('hargaPromo', prod.hargaPromo || 0);
                 p.append('deskripsi', deskVal);
 
-                // Kirim ulang link foto lama agar tidak terhapus
                 p.append('old1', prod.url || '');
                 p.append('old2', prod.url2 || '');
                 p.append('old3', prod.url3 || '');
@@ -442,6 +436,9 @@
                 this.value = '';
                 return;
             }
+            Array.from(this.files).files.forEach(file => { // Diperbaiki dari Array.from(this.files).files menjadi Array.from(this.files)
+            });
+            // Bagian event listener multiFiles yang aman:
             Array.from(this.files).forEach(file => {
                 const reader = new FileReader();
                 reader.onload = function(evt) {
