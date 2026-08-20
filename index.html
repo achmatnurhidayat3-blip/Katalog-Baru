@@ -107,12 +107,19 @@
         <input type="hidden" id="edit-id">
         <input type="hidden" id="o1"><input type="hidden" id="o2"><input type="hidden" id="o3"><input type="hidden" id="o4"><input type="hidden" id="o5">
         <input type="text" id="nama" placeholder="Nama Produk">
+        
         <select id="kelompok">
-            <option value="Ready">Ready</option>
             <option value="Normal">Normal</option>
             <option value="Hotprint">Hotprint</option>
             <option value="Custom">Custom</option>
         </select>
+
+        <!-- Checkbox Penanda Produk Ready -->
+        <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; margin: 8px 0; border: 1px solid #ddd; display: flex; align-items: center; gap: 8px;">
+            <input type="checkbox" id="isReady" style="width: 20px; height: 20px; margin: 0; cursor: pointer;">
+            <label for="isReady" style="font-size: 13px; font-weight: bold; color: var(--dark); cursor: pointer; margin: 0;">📦 Tandai sebagai Produk Ready (Tampil di Tab Ready)</label>
+        </div>
+
         <input type="text" id="jenis" placeholder="Jenis (Softcover/Hardcover)">
         <input type="number" id="hargaA" placeholder="Harga Asli">
         <input type="number" id="hargaP" placeholder="Harga Promo">
@@ -174,7 +181,16 @@
             el.classList.add('active');
             const cont = document.getElementById('container');
             cont.innerHTML = '';
-            let items = kat === 'PROMO' ? db.filter(i => i.hargaPromo > 0) : db.filter(i => i.kelompok === kat);
+            
+            let items = [];
+            if (kat === 'PROMO') {
+                items = db.filter(i => i.hargaPromo > 0);
+            } else if (kat === 'Ready') {
+                items = db.filter(i => i.isReady === true || i.isReady === 'true');
+            } else {
+                items = db.filter(i => i.kelompok === kat);
+            }
+
             if(items.length === 0) {
                 cont.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color:#888;">Tidak ada produk untuk kategori ini.</div>`;
                 return;
@@ -272,7 +288,8 @@
             const i = db.find(x => x.id == id);
             document.getElementById('edit-id').value = i.id;
             document.getElementById('nama').value = i.nama;
-            document.getElementById('kelompok').value = i.kelompok;
+            document.getElementById('kelompok').value = i.kelompok || 'Normal';
+            document.getElementById('isReady').checked = (i.isReady === true || i.isReady === 'true');
             document.getElementById('jenis').value = i.jenis;
             document.getElementById('hargaA').value = i.hargaAsli;
             document.getElementById('hargaP').value = i.hargaPromo;
@@ -320,6 +337,7 @@
             p.append('rowId', document.getElementById('edit-id').value);
             p.append('nama', document.getElementById('nama').value);
             p.append('kelompok', document.getElementById('kelompok').value);
+            p.append('isReady', document.getElementById('isReady').checked);
             p.append('jenis', document.getElementById('jenis').value);
             p.append('hargaAsli', document.getElementById('hargaA').value);
             p.append('hargaPromo', document.getElementById('hargaP').value);
@@ -328,7 +346,6 @@
             const files = document.getElementById('multiFiles').files;
             for(let k=1; k<=5; k++) {
                 p.append('old'+k, document.getElementById('o'+k).value);
-                // Mengambil file dari input multiple jika tersedia, indeks ke-(k-1)
                 const fileToUpload = files[k-1] || null;
                 p.append('img'+k, await toB64(fileToUpload));
             }
