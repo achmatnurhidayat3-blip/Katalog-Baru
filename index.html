@@ -29,9 +29,13 @@
         .btn-wa-header { background: var(--wa); color: white; border: none; }
 
         .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); }
+        
+        /* Kotak Khusus Quick Input Ready */
+        .quick-ready-panel { background: #fffdf5; border: 1px solid var(--gold); padding: 15px; border-radius: 10px; margin-bottom: 20px; }
+        .quick-ready-panel h4 { margin: 0 0 8px 0; color: var(--dark); font-size: 14px; }
+        
         input, select, textarea, button { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
         
-        /* Floating Action Bar untuk Admin Mode Pilih Banyak */
         #batch-action-bar { display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--dark); color: white; padding: 12px 20px; border-radius: 30px; z-index: 1001; box-shadow: 0 5px 20px rgba(0,0,0,0.3); align-items: center; gap: 15px; border: 2px solid var(--gold); font-size: 13px; font-weight: bold; width: 90%; max-width: 400px; justify-content: space-between; }
         .batch-btn { padding: 8px 12px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; font-size: 11px; }
 
@@ -94,7 +98,7 @@
         </div>
     </div>
 
-    <!-- Floating Bar Khusus Admin Mode Pilih Banyak -->
+    <!-- Floating Bar untuk Pilih Banyak via Klik/Tap -->
     <div id="batch-action-bar">
         <span id="selected-count">0 Dipilih</span>
         <div style="display: flex; gap: 6px;">
@@ -113,7 +117,21 @@
     </div>
 
     <div id="admin-box" class="admin-box">
-        <h3 id="adm-title">Tambah Produk Baru</h3>
+        
+        <!-- FITUR BARU: Input Cepat Nama/Kode Undangan -->
+        <div class="quick-ready-panel">
+            <h4>⚡ Ketik Nama/Kode Undangan Ready</h4>
+            <p style="font-size:11px; color:#666; margin:0 0 8px;">Pisahkan dengan koma jika banyak, contoh: <b>CG04, CG05, SC12</b></p>
+            <input type="text" id="quickReadyInput" placeholder="Ketik nama undangan..." style="background: white; margin-bottom: 8px;">
+            <div style="display: flex; gap: 6px;">
+                <button onclick="processQuickReady(true)" style="background: var(--gold); color: white; font-weight: bold; font-size: 12px; padding: 10px;">✅ Jadikan Ready</button>
+                <button onclick="processQuickReady(false)" style="background: #e74c3c; color: white; font-weight: bold; font-size: 12px; padding: 10px;">❌ Batalkan Ready</button>
+            </div>
+        </div>
+
+        <hr style="border: 0; border-top: 1px solid #eee; margin: 15px 0;">
+
+        <h3 id="adm-title" style="margin-top:0;">Tambah Produk Baru</h3>
         <input type="hidden" id="edit-id">
         <input type="hidden" id="o1"><input type="hidden" id="o2"><input type="hidden" id="o3"><input type="hidden" id="o4"><input type="hidden" id="o5">
         <input type="text" id="nama" placeholder="Nama Produk">
@@ -227,8 +245,6 @@
                 `;
 
                 const imgEl = card.querySelector('img');
-                
-                // Klik biasa atau dengan tombol CTRL di komputer
                 imgEl.onclick = (e) => {
                     if (isAdmin && (selectedIds.length > 0 || e.ctrlKey || e.metaKey)) {
                         toggleSelect(i.id, card);
@@ -238,16 +254,8 @@
                 };
 
                 if(isAdmin) {
-                    // PC: Klik Kanan untuk memilih/menandai produk
-                    card.oncontextmenu = (e) => {
-                        e.preventDefault();
-                        toggleSelect(i.id, card);
-                    };
-
-                    // HP: Tahan lama (Long Press)
-                    card.ontouchstart = () => {
-                        touchTimer = setTimeout(() => toggleSelect(i.id, card), 600);
-                    };
+                    card.oncontextmenu = (e) => { e.preventDefault(); toggleSelect(i.id, card); };
+                    card.ontouchstart = () => { touchTimer = setTimeout(() => toggleSelect(i.id, card), 600); };
                     card.ontouchend = () => clearTimeout(touchTimer);
                 }
 
@@ -277,6 +285,68 @@
             selectedIds = [];
             document.getElementById('batch-action-bar').style.display = 'none';
             filter(currentCategory, document.querySelector('.tab.active'));
+        }
+
+        // Fungsi Proses Cepat via Teks Koma (Contoh: CG04, CG05)
+        async function processQuickReady(statusReady) {
+            const rawText = document.getElementById('quickReadyInput').value.trim();
+            if (!rawText) {
+                alert("Silakan ketik nama/kode undangan terlebih dahulu!");
+                return;
+            }
+
+            // Pecah teks berdasarkan koma, lalu bersihkan spasi
+            const searchNames = rawText.split(',').map(n => n.trim().toLowerCase());
+            
+            // Cari produk di dalam database yang namanya cocok (mengandung teks tersebut)
+            const matchedProducts = db.filter(prod => {
+                const pName = prod.nama.toLowerCase();
+                return searchNames.some(s => pName.includes(s));
+            });
+
+            if (matchedProducts.length === 0) {
+                alert("Tidak ada produk yang cocok dengan nama/kode tersebut.");
+                return;
+            }
+
+            if (!confirm(`Ditemukan ${matchedProducts.length} produk yang cocok. Ubah status Ready?`)) return;
+
+            // Tampilkan status proses di panel
+            const panel = document.querySelector('.quick-ready-panel');
+            panel.innerHTML = "<h4 style='text-align:center; color:var(--gold); margin:10px 0;'>⏳ Menyimpan perubahan...</h4>";
+
+            for (let prod of matchedProducts) {
+                let deskVal = prod.deskripsi || "";
+                let hasReady = deskVal.includes('[STATUS_READY]');
+
+                if (statusReady && !hasReady) {
+                    deskVal = '[STATUS_READY] ' + deskVal;
+                } else if (!statusReady && hasReady) {
+                    deskVal = deskVal.replace('[STATUS_READY]', '').trim();
+                } else {
+                    continue;
+                }
+
+                const p = new URLSearchParams();
+                p.append('action', 'update');
+                p.append('rowId', prod.id);
+                p.append('nama', prod.nama);
+                p.append('kelompok', prod.kelompok || 'Normal');
+                p.append('jenis', prod.jenis || '');
+                p.append('hargaAsli', prod.hargaAsli || 0);
+                p.append('hargaPromo', prod.hargaPromo || 0);
+                p.append('deskripsi', deskVal);
+
+                p.append('old1', prod.url || '');
+                p.append('old2', prod.url2 || '');
+                p.append('old3', prod.url3 || '');
+                p.append('old4', prod.url4 || '');
+                p.append('old5', prod.url5 || '');
+
+                await fetch(scriptURL, { method: 'POST', body: p });
+            }
+
+            location.reload();
         }
 
         async function setBatchReady(statusReady) {
@@ -436,9 +506,6 @@
                 this.value = '';
                 return;
             }
-            Array.from(this.files).files.forEach(file => { // Diperbaiki dari Array.from(this.files).files menjadi Array.from(this.files)
-            });
-            // Bagian event listener multiFiles yang aman:
             Array.from(this.files).forEach(file => {
                 const reader = new FileReader();
                 reader.onload = function(evt) {
@@ -457,7 +524,11 @@
         async function simpan() {
             const btn = document.getElementById('btnSave');
             btn.disabled = true; btn.innerText = "⏳ Mengunggah...";
-            const toB64 = f => !f ? "" : new Promise((res) => {
+            const toB64 = f => !f ? "" : new MenuPromise((res) => {
+                const r = new FileReader(); r.readAsDataURL(f); r.onload = () => res(r.result);
+            });
+            // Diperbaiki sintaks Promise yang aman:
+            const safeToB64 = f => !f ? "" : new Promise((res) => {
                 const r = new FileReader(); r.readAsDataURL(f); r.onload = () => res(r.result);
             });
             const p = new URLSearchParams();
@@ -483,7 +554,7 @@
             for(let k=1; k<=5; k++) {
                 p.append('old'+k, document.getElementById('o'+k).value);
                 const fileToUpload = files[k-1] || null;
-                p.append('img'+k, await toB64(fileToUpload));
+                p.append('img'+k, await safeToB64(fileToUpload));
             }
             await fetch(scriptURL, { method: 'POST', body: p });
             location.reload();
