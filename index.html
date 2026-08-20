@@ -6,9 +6,8 @@
     <title>Katalog Asheeqa Printing</title>
    <style>
         :root { --wa: #25D366; --gold: #c5a059; --dark: #2d3436; --bg: #f9f9fb; --promo: #d63031; }
-        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 80px; color: #333; }
+        body { font-family: 'Segoe UI', sans-serif; background: var(--bg); margin: 0; padding-bottom: 80px; color: #333; user-select: none; }
         
-        /* Header Baru */
         .header { 
             background: linear-gradient(to bottom, #fff6df, #ffffff); 
             padding: 30px 15px 20px 15px; 
@@ -19,38 +18,41 @@
         .brand-name { font-size: 28px; font-weight: 800; color: var(--dark); margin: 0; }
         .brand-subtitle { font-size: 11px; font-weight: 700; color: #b89753; letter-spacing: 1.5px; text-transform: uppercase; margin: 4px 0 12px 0; }
         
-        /* Badge Keunggulan di Header */
         .header-badges { display: flex; justify-content: center; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
         .h-badge { background: rgba(197, 160, 89, 0.12); border: 1px solid rgba(197, 160, 89, 0.3); color: #8c6e31; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; display: inline-flex; align-items: center; gap: 4px; }
 
         .header-address { font-size: 12px; color: #666; margin-bottom: 15px; font-weight: 500; }
 
-        /* Tombol Aksi Header */
         .header-actions { display: flex; justify-content: center; gap: 10px; margin-top: 5px; }
         .btn-action { padding: 8px 16px; border-radius: 20px; font-size: 12px; font-weight: bold; cursor: pointer; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; box-shadow: 0 2px 5px rgba(0,0,0,0.05); transition: 0.2s; }
         .btn-location { background: white; color: var(--dark); border: 1px solid #ddd; }
         .btn-wa-header { background: var(--wa); color: white; border: none; }
 
-        /* Admin */
         .admin-box { background: white; padding: 20px; border-radius: 12px; max-width: 500px; margin: 20px auto; display: none; border: 2px dashed var(--gold); }
         input, select, textarea, button { width: 100%; padding: 12px; margin: 5px 0; border: 1px solid #ddd; border-radius: 8px; box-sizing: border-box; }
         
-        /* Tabs */
+        /* Floating Action Bar untuk Admin Mode Pilih Banyak */
+        #batch-action-bar { display: none; position: fixed; bottom: 80px; left: 50%; transform: translateX(-50%); background: var(--dark); color: white; padding: 12px 20px; border-radius: 30px; z-index: 1001; box-shadow: 0 5px 20px rgba(0,0,0,0.3); align-items: center; gap: 15px; border: 2px solid var(--gold); font-size: 13px; font-weight: bold; width: 90%; max-width: 400px; justify-content: space-between; }
+        .batch-btn { padding: 8px 12px; border-radius: 15px; border: none; font-weight: bold; cursor: pointer; font-size: 11px; }
+
         .nav-tabs { display: flex; justify-content: center; background: white; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 5px rgba(0,0,0,0.05); overflow-x: auto; }
         .tab { padding: 15px 15px; cursor: pointer; font-weight: bold; color: #aaa; border-bottom: 3px solid transparent; white-space: nowrap; font-size: 14px; }
         .tab.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-        /* Grid & Card */
         .container { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 15px; padding: 15px; max-width: 1000px; margin: 0 auto; }
-        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; }
+        .card { background: white; border-radius: 15px; overflow: hidden; box-shadow: 0 4px 10px rgba(0,0,0,0.08); position: relative; display: flex; flex-direction: column; transition: transform 0.2s; }
+        .card.selected { border: 3px solid var(--gold); transform: scale(0.97); background: #fffdf5; }
         .card img { width: 100%; height: 180px; object-fit: cover; cursor: pointer; border-bottom: 1px solid #eee; }
         
+        /* Badge Indikator Ready di Pojok Card */
+        .ready-badge { position: absolute; top: 10px; right: 10px; background: var(--gold); color: white; font-size: 10px; font-weight: bold; padding: 3px 8px; border-radius: 10px; box-shadow: 0 2px 4px rgba(0,0,0,0.2); display: none; }
+        .card.is-ready-card .ready-badge { display: block; }
+
         .info { padding: 12px; text-align: center; }
         .price-container { display: flex; flex-direction: column; align-items: center; min-height: 40px; justify-content: center; }
         .price-old { text-decoration: line-through; color: #999; font-size: 11px; }
         .price-new { color: var(--promo); font-weight: 800; font-size: 15px; }
 
-        /* Modal Detail */
         #modal-detail { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.95); z-index:1000; overflow-y: auto; }
         .modal-content { background: white; width: 100%; max-width: 450px; margin: 0 auto; min-height: 100vh; position: relative; }
         
@@ -65,7 +67,6 @@
         .thumb { width: 60px; height: 60px; object-fit: cover; border-radius: 5px; cursor: pointer; flex-shrink: 0; border: 2px solid transparent; }
         .active-thumb { border-color: var(--gold); }
 
-        /* Fullscreen View */
         #fullscreen-view { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: black; z-index: 2000; justify-content: center; align-items: center; overflow: hidden; touch-action: none; }
         #full-img { max-width: 100%; max-height: 100%; transition: transform 0.3s ease, opacity 0.2s ease; user-select: none; }
         .close-full { position: absolute; top: 20px; right: 20px; color: white; font-size: 30px; font-weight: bold; cursor: pointer; z-index: 2001; background: rgba(0,0,0,0.5); width: 40px; height: 40px; border-radius: 50%; display: flex; justify-content: center; align-items: center; }
@@ -94,6 +95,16 @@
         </div>
     </div>
 
+    <!-- Floating Bar Khusus Admin Saat Mode Pilih Banyak -->
+    <div id="batch-action-bar">
+        <span id="selected-count">0 Dipilih</span>
+        <div style="display: flex; gap: 6px;">
+            <button class="batch-btn" style="background: var(--gold); color: white;" onclick="setBatchReady(true)">📦 Set Ready</button>
+            <button class="batch-btn" style="background: #e74c3c; color: white;" onclick="setBatchReady(false)">❌ Hapus Ready</button>
+            <button class="batch-btn" style="background: #ccc; color: #333;" onclick="clearSelection()">Batal</button>
+        </div>
+    </div>
+
     <div class="nav-tabs">
         <div class="tab active" onclick="filter('PROMO', this)">🔥 PROMO</div>
         <div class="tab" onclick="filter('Ready', this)">📦 Ready</div>
@@ -114,10 +125,9 @@
             <option value="Custom">Custom</option>
         </select>
 
-        <!-- Checkbox Penanda Produk Ready -->
         <div style="background: #f8f9fa; padding: 10px; border-radius: 8px; margin: 8px 0; border: 1px solid #ddd; display: flex; align-items: center; gap: 8px;">
             <input type="checkbox" id="isReady" style="width: 20px; height: 20px; margin: 0; cursor: pointer;">
-            <label for="isReady" style="font-size: 13px; font-weight: bold; color: var(--dark); cursor: pointer; margin: 0;">📦 Tandai sebagai Produk Ready (Tampil di Tab Ready)</label>
+            <label for="isReady" style="font-size: 13px; font-weight: bold; color: var(--dark); cursor: pointer; margin: 0;">📦 Tandai sebagai Produk Ready</label>
         </div>
 
         <input type="text" id="jenis" placeholder="Jenis (Softcover/Hardcover)">
@@ -125,7 +135,7 @@
         <input type="number" id="hargaP" placeholder="Harga Promo">
         <textarea id="desk" placeholder="Deskripsi..."></textarea>
         
-        <p style="font-size:11px; color:var(--promo); margin:10px 0 0;">*Upload file gambar sekaligus (Maks 5 gambar dalam 1 kali klik)</p>
+        <p style="font-size:11px; color:var(--promo); margin:10px 0 0;">*Upload file gambar sekaligus (Maks 5 gambar)</p>
         <input type="file" id="multiFiles" accept="image/*" multiple max="5">
         <div id="preview-box" style="display: flex; gap: 5px; margin-top: 5px; overflow-x: auto;"></div>
 
@@ -163,6 +173,8 @@
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbyxcNyq4dUZEXMXROj6Jq0ijzLlQv1SQUrN5pR931IQXj-A_Tn123tCDXSpGrMfHWSOvg/exec'; 
         let db = [], cart = [], activeProd = [], photos = [], currentIdx = 0;
+        let selectedIds = [];
+        let touchTimer = null;
         let touchX = 0, fullTouchX = 0, initialDist = -1;
 
         const isAdmin = new URLSearchParams(window.location.search).get('mode') === 'admin';
@@ -176,17 +188,19 @@
             filter('PROMO', document.querySelector('.tab'));
         }
 
+        let currentCategory = 'PROMO';
         function filter(kat, el) {
+            currentCategory = kat;
             document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-            el.classList.add('active');
+            if(el) el.classList.add('active');
             const cont = document.getElementById('container');
             cont.innerHTML = '';
             
             let items = [];
             if (kat === 'PROMO') {
-                items = db.filter(i => i.hargaPromo > 0);
+                items = db.filter(i => parseFloat(i.hargaPromo) > 0);
             } else if (kat === 'Ready') {
-                items = db.filter(i => i.isReady === true || i.isReady === 'true');
+                items = db.filter(i => (i.deskripsi && i.deskripsi.includes('[STATUS_READY]')) || (i.jenis && i.jenis.includes('[STATUS_READY]')));
             } else {
                 items = db.filter(i => i.kelompok === kat);
             }
@@ -195,10 +209,124 @@
                 cont.innerHTML = `<div style="grid-column: 1/-1; text-align:center; padding: 40px; color:#888;">Tidak ada produk untuk kategori ini.</div>`;
                 return;
             }
+
             items.forEach(i => {
-                let harga = i.hargaPromo > 0 ? `<div class="price-container"><span class="price-old">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span><span class="price-new">Rp ${parseInt(i.hargaPromo).toLocaleString('id-ID')}</span></div>` : `<div class="price-container"><span class="price-new">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span></div>`;
-                cont.innerHTML += `<div class="card"><img src="${fixUrl(i.url)}" onclick="buka('${i.id}')"><div class="info"><b style="font-size:13px;">${i.nama}</b>${harga}${isAdmin ? `<button onclick="isiEdit('${i.id}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:5px; border-radius:5px; width:100%;">EDIT</button>` : ''}</div></div>`;
+                let isReady = (i.deskripsi && i.deskripsi.includes('[STATUS_READY]')) || (i.jenis && i.jenis.includes('[STATUS_READY]'));
+                let isSelected = selectedIds.includes(i.id);
+                let harga = parseFloat(i.hargaPromo) > 0 ? `<div class="price-container"><span class="price-old">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span><span class="price-new">Rp ${parseInt(i.hargaPromo).toLocaleString('id-ID')}</span></div>` : `<div class="price-container"><span class="price-new">Rp ${parseInt(i.hargaAsli).toLocaleString('id-ID')}</span></div>`;
+                
+                let card = document.createElement('div');
+                card.className = `card ${isReady ? 'is-ready-card' : ''} ${isSelected ? 'selected' : ''}`;
+                card.innerHTML = `
+                    <span class="ready-badge">READY</span>
+                    <img src="${fixUrl(i.url)}" data-id="${i.id}">
+                    <div class="info">
+                        <b style="font-size:13px;">${i.nama}</b>
+                        ${harga}
+                        ${isAdmin ? `<button onclick="isiEdit('${i.id}')" style="background:var(--gold); color:white; border:none; padding:6px; margin-top:5px; border-radius:5px; width:100%;">EDIT</button>` : ''}
+                    </div>
+                `;
+
+                // Event Listener untuk klik gambar (Buka detail atau pilih jika mode admin)
+                const imgEl = card.querySelector('img');
+                imgEl.onclick = () => {
+                    if (isAdmin && selectedIds.length > 0) {
+                        toggleSelect(i.id, card);
+                    } else {
+                        buka(i.id);
+                    }
+                };
+
+                // Long Press (Tekan Lama) khusus Admin
+                if(isAdmin) {
+                    card.onmousedown = () => startLongPress(i.id, card);
+                    card.ontouchstart = () => startLongPress(i.id, card);
+                    card.onmouseup = cancelLongPress;
+                    card.ontouchend = cancelLongPress;
+                    card.onmouseleave = cancelLongPress;
+                }
+
+                cont.appendChild(card);
             });
+        }
+
+        function startLongPress(id, card) {
+            touchTimer = setTimeout(() => {
+                toggleSelect(id, card);
+            }, 600); // Tahan 0.6 detik
+        }
+
+        function cancelLongPress() {
+            clearTimeout(touchTimer);
+        }
+
+        function toggleSelect(id, card) {
+            if (selectedIds.includes(id)) {
+                selectedIds = selectedIds.filter(item => item !== id);
+                card.classList.remove('selected');
+            } else {
+                selectedIds.push(id);
+                card.classList.add('selected');
+            }
+            
+            const bar = document.getElementById('batch-action-bar');
+            if (selectedIds.length > 0) {
+                bar.style.display = 'flex';
+                document.getElementById('selected-count').innerText = `${selectedIds.length} Dipilih`;
+            } else {
+                bar.style.display = 'none';
+            }
+        }
+
+        function clearSelection() {
+            selectedIds = [];
+            document.getElementById('batch-action-bar').style.display = 'none';
+            filter(currentCategory, document.querySelector('.tab.active'));
+        }
+
+        async function setBatchReady(statusReady) {
+            if (selectedIds.length === 0) return;
+            if (!confirm(`Ubah status Ready untuk ${selectedIds.length} produk terpilih?`)) return;
+
+            const bar = document.getElementById('batch-action-bar');
+            bar.innerHTML = "<span style='margin:auto;'>⏳ Memproses...</span>";
+
+            for (let id of selectedIds) {
+                let prod = db.find(x => x.id == id);
+                if (!prod) continue;
+
+                let deskVal = prod.deskripsi || "";
+                let hasReady = deskVal.includes('[STATUS_READY]');
+
+                if (statusReady && !hasReady) {
+                    deskVal = '[STATUS_READY] ' + deskVal;
+                } else if (!statusReady && hasReady) {
+                    deskVal = deskVal.replace('[STATUS_READY]', '').trim();
+                } else {
+                    continue; // Jika kondisinya sudah sesuai, lewati
+                }
+
+                const p = new URLSearchParams();
+                p.append('action', 'update');
+                p.append('rowId', prod.id);
+                p.append('nama', prod.nama);
+                p.append('kelompok', prod.kelompok || 'Normal');
+                p.append('jenis', prod.jenis || '');
+                p.append('hargaAsli', prod.hargaAsli || 0);
+                p.append('hargaPromo', prod.hargaPromo || 0);
+                p.append('deskripsi', deskVal);
+
+                // Kirim ulang link foto lama agar tidak terhapus
+                p.append('old1', prod.url || '');
+                p.append('old2', prod.url2 || '');
+                p.append('old3', prod.url3 || '');
+                p.append('old4', prod.url4 || '');
+                p.append('old5', prod.url5 || '');
+
+                await fetch(scriptURL, { method: 'POST', body: p });
+            }
+
+            location.reload();
         }
 
         function buka(id) {
@@ -207,8 +335,8 @@
             currentIdx = 0;
             updateSlider();
             document.getElementById('v-nama').innerText = activeProd.nama;
-            document.getElementById('v-jenis').innerText = activeProd.jenis;
-            document.getElementById('v-desk').innerText = activeProd.deskripsi || "Detail produk Asheeqa Printing.";
+            document.getElementById('v-jenis').innerText = (activeProd.jenis || '').replace('[STATUS_READY]', '').trim();
+            document.getElementById('v-desk').innerText = (activeProd.deskripsi || '').replace('[STATUS_READY]', '').trim() || "Detail produk Asheeqa Printing.";
             document.getElementById('modal-detail').style.display = 'block';
             history.pushState({modal:true}, '', '#detail');
         }
@@ -289,11 +417,15 @@
             document.getElementById('edit-id').value = i.id;
             document.getElementById('nama').value = i.nama;
             document.getElementById('kelompok').value = i.kelompok || 'Normal';
-            document.getElementById('isReady').checked = (i.isReady === true || i.isReady === 'true');
-            document.getElementById('jenis').value = i.jenis;
+            
+            const isReadyChecked = (i.deskripsi && i.deskripsi.includes('[STATUS_READY]')) || (i.jenis && i.jenis.includes('[STATUS_READY]'));
+            document.getElementById('isReady').checked = isReadyChecked;
+            
+            document.getElementById('jenis').value = (i.jenis || '').replace('[STATUS_READY]', '').trim();
             document.getElementById('hargaA').value = i.hargaAsli;
             document.getElementById('hargaP').value = i.hargaPromo;
-            document.getElementById('desk').value = i.deskripsi;
+            document.getElementById('desk').value = (i.deskripsi || '').replace('[STATUS_READY]', '').trim();
+            
             document.getElementById('o1').value = i.url || ""; document.getElementById('o2').value = i.url2 || "";
             document.getElementById('o3').value = i.url3 || ""; document.getElementById('o4').value = i.url4 || "";
             document.getElementById('o5').value = i.url5 || "";
@@ -302,7 +434,6 @@
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
 
-        // Preview kecil untuk pilihan multi file
         document.getElementById('multiFiles').addEventListener('change', function(e) {
             const box = document.getElementById('preview-box');
             box.innerHTML = '';
@@ -337,11 +468,19 @@
             p.append('rowId', document.getElementById('edit-id').value);
             p.append('nama', document.getElementById('nama').value);
             p.append('kelompok', document.getElementById('kelompok').value);
-            p.append('isReady', document.getElementById('isReady').checked);
-            p.append('jenis', document.getElementById('jenis').value);
+            
+            let jenisVal = document.getElementById('jenis').value;
+            let deskVal = document.getElementById('desk').value;
+            const isReadyChecked = document.getElementById('isReady').checked;
+
+            if (isReadyChecked) {
+                deskVal = '[STATUS_READY] ' + deskVal;
+            }
+
+            p.append('jenis', jenisVal);
             p.append('hargaAsli', document.getElementById('hargaA').value);
             p.append('hargaPromo', document.getElementById('hargaP').value);
-            p.append('deskripsi', document.getElementById('desk').value);
+            p.append('deskripsi', deskVal);
             
             const files = document.getElementById('multiFiles').files;
             for(let k=1; k<=5; k++) {
